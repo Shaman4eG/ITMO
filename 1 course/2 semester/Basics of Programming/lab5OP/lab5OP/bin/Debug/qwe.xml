@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEmployee xmlns="http://www.ipm.ifmo.ru">
+  <Employee type="CleaningStaff">
+    <SpecialNumber>2</SpecialNumber>
+    <Name>as</Name>
+    <LastName>d</LastName>
+    <Patronymic>asd</Patronymic>
+    <BirthDate>das</BirthDate>
+    <Position>Cleaning Staff</Position>
+  </Employee>
+  <Employee type="HeadOfDepartment">
+    <SpecialNumber>4</SpecialNumber>
+    <Name>a</Name>
+    <LastName>sd</LastName>
+    <Patronymic>sad</Patronymic>
+    <BirthDate>a</BirthDate>
+    <Position>Head of Department</Position>
+  </Employee>
+  <Employee type="HeadOfDepartment">
+    <SpecialNumber>1</SpecialNumber>
+    <Name>as</Name>
+    <LastName>das</LastName>
+    <Patronymic>da</Patronymic>
+    <BirthDate>s</BirthDate>
+    <Position>Head of Department</Position>
+  </Employee>
+  <Employee type="HeadOfDepartment">
+    <SpecialNumber>2</SpecialNumber>
+    <Name>as</Name>
+    <LastName>dsa</LastName>
+    <Patronymic>dasd</Patronymic>
+    <BirthDate />
+    <Position>Head of Department</Position>
+  </Employee>
+</ArrayOfEmployee>

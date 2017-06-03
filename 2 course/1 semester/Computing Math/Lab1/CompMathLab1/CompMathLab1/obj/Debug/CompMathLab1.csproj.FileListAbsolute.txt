@@ -1,0 +1,46 @@
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\bin\Debug\CompMathLab1.exe.config
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\bin\Debug\CompMathLab1.exe
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\bin\Debug\CompMathLab1.pdb
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.csprojResolveAssemblyReference.cache
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Debug\MainWindow.g.cs
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Debug\App.g.cs
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1_MarkupCompile.cache
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1_MarkupCompile.lref
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Debug\MainWindow.baml
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.g.resources
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.Properties.Resources.resources
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.csproj.GenerateResource.Cache
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.exe
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.pdb
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\bin\Debug\CompMathLab1.exe.config
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.exe
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.pdb
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\bin\Debug\CompMathLab1.exe
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\bin\Debug\CompMathLab1.pdb
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.csprojResolveAssemblyReference.cache
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\obj\Debug\MainWindow.g.cs
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\obj\Debug\App.g.cs
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1_MarkupCompile.cache
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1_MarkupCompile.lref
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\obj\Debug\MainWindow.baml
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.g.resources
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.Properties.Resources.resources
+C:\Users\etokt_000\Desktop\Lab1\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.csproj.GenerateResource.Cache
+C:\Users\Daniel3\Desktop\_Lab1\CompMathLab1\CompMathLab1\bin\Debug\CompMathLab1.exe.config
+C:\Users\Daniel3\Desktop\_Lab1\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.exe
+C:\Users\Daniel3\Desktop\_Lab1\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.pdb
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\bin\Debug\CompMathLab1.exe.config
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.exe
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.pdb
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\bin\Debug\CompMathLab1.XML
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\bin\Debug\CompMathLab1.exe
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\bin\Debug\CompMathLab1.pdb
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.csprojResolveAssemblyReference.cache
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\obj\Debug\MainWindow.g.cs
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\obj\Debug\App.g.cs
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1_MarkupCompile.cache
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1_MarkupCompile.lref
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\obj\Debug\MainWindow.baml
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.g.resources
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.Properties.Resources.resources
+C:\Users\Daniel3\Desktop\_Lab1 — копия\CompMathLab1\CompMathLab1\obj\Debug\CompMathLab1.csproj.GenerateResource.Cache

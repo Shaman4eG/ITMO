@@ -1,0 +1,14 @@
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\bin\Debug\Lab2CompMath.exe.config
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\bin\Debug\Lab2CompMath.exe
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\bin\Debug\Lab2CompMath.pdb
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\obj\Debug\Lab2CompMath.csprojResolveAssemblyReference.cache
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\obj\Debug\MainWindow.g.cs
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\obj\Debug\App.g.cs
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\obj\Debug\Lab2CompMath_MarkupCompile.cache
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\obj\Debug\Lab2CompMath_MarkupCompile.lref
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\obj\Debug\MainWindow.baml
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\obj\Debug\Lab2CompMath.g.resources
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\obj\Debug\Lab2CompMath.Properties.Resources.resources
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\obj\Debug\Lab2CompMath.csproj.GenerateResource.Cache
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\obj\Debug\Lab2CompMath.exe
+C:\Users\Daniel3\Desktop\Lab2\Lab2CompMath\Lab2CompMath\obj\Debug\Lab2CompMath.pdb

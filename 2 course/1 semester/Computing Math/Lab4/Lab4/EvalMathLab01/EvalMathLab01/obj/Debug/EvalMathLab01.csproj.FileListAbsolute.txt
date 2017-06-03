@@ -1,0 +1,51 @@
+C:\Users\User\Desktop\Programming\Личные проекты\CardGame\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe.config
+C:\Users\User\Desktop\Programming\Личные проекты\CardGame\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe
+C:\Users\User\Desktop\Programming\Личные проекты\CardGame\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.pdb
+C:\Users\User\Desktop\Programming\Личные проекты\CardGame\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\Programming\Личные проекты\CardGame\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.Form1.resources
+C:\Users\User\Desktop\Programming\Личные проекты\CardGame\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.Properties.Resources.resources
+C:\Users\User\Desktop\Programming\Личные проекты\CardGame\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.csproj.GenerateResource.Cache
+C:\Users\User\Desktop\Programming\Личные проекты\CardGame\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.exe
+C:\Users\User\Desktop\Programming\Личные проекты\CardGame\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.pdb
+C:\Users\User\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe.config
+C:\Users\User\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.exe
+C:\Users\User\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.pdb
+C:\Users\User\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe
+C:\Users\User\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.pdb
+C:\Users\User\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.csprojResolveAssemblyReference.cache
+C:\Users\User\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.Form1.resources
+C:\Users\User\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.Properties.Resources.resources
+C:\Users\User\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.csproj.GenerateResource.Cache
+D:\EvaluationMath\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe.config
+D:\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.exe
+D:\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.pdb
+D:\EvaluationMath\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe
+D:\EvaluationMath\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.pdb
+D:\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.csprojResolveAssemblyReference.cache
+D:\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.Form1.resources
+D:\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.Properties.Resources.resources
+D:\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.csproj.GenerateResource.Cache
+C:\Users\etokt_000\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe.config
+C:\Users\etokt_000\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.exe
+C:\Users\etokt_000\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.pdb
+C:\Users\Daniel3\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe.config
+C:\Users\Daniel3\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.exe
+C:\Users\Daniel3\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.pdb
+C:\Users\Daniel3\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe
+C:\Users\Daniel3\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.pdb
+C:\Users\Daniel3\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.csprojResolveAssemblyReference.cache
+C:\Users\Daniel3\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.Form1.resources
+C:\Users\Daniel3\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.Properties.Resources.resources
+C:\Users\Daniel3\Desktop\EvaluationMath\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.csproj.GenerateResource.Cache
+C:\Users\Daniel3\Desktop\EvaluationMath — копия\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe.config
+C:\Users\Daniel3\Desktop\EvaluationMath — копия\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.exe
+C:\Users\Daniel3\Desktop\EvaluationMath — копия\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.pdb
+C:\Users\Daniel3\Desktop\EvaluationMath — копия\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe
+C:\Users\Daniel3\Desktop\EvaluationMath — копия\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.pdb
+C:\Users\Daniel3\Desktop\EvaluationMath — копия\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.csprojResolveAssemblyReference.cache
+C:\Users\Daniel3\Desktop\EvaluationMath — копия\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.Form1.resources
+C:\Users\Daniel3\Desktop\EvaluationMath — копия\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.Properties.Resources.resources
+C:\Users\Daniel3\Desktop\EvaluationMath — копия\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.csproj.GenerateResource.Cache
+C:\Users\Daniel3\Desktop\Lab4\EvalMathLab01\EvalMathLab01\bin\Debug\EvalMathLab01.exe.config
+C:\Users\Daniel3\Desktop\Lab4\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.exe
+C:\Users\Daniel3\Desktop\Lab4\EvalMathLab01\EvalMathLab01\obj\Debug\EvalMathLab01.pdb

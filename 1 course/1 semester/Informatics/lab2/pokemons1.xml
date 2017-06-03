@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pokemons format="animation" release_year="1996" xmlns="http://msiter.ru" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://msiter.ru schema_pockemons.xsd">
+<group name="physical">
+<type name="normal">
+<species name="Raticate">
+<ability>Guts  </ability>
+<height uom="meter">0.71  </height>
+<weight uom="kg">18.5  </weight>
+</species>
+</type>     
+</group>
+<group name="special">
+<type name="fire">
+<species name="Charmander">
+<ability>Blaze  </ability>
+<height uom="meter">0.61  </height>
+<weight uom="kg">8.5  </weight>
+</species>
+</type>
+</group>
+<group name="mixed">
+<type name="grass/poison">
+<species name="Bulbasaur">
+<ability>Overgrow  </ability>
+<height uom="meter">0.71  </height>
+<weight uom="kg">6.9  </weight>
+</species>
+</type>
+</group>
+</pokemons>

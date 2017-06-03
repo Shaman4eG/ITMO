@@ -1,0 +1,28 @@
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\bin\Debug\TurMachine.exe.config
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\bin\Debug\TurMachine.exe
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\bin\Debug\TurMachine.pdb
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.csprojResolveAssemblyReference.cache
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\obj\Debug\MainWindow.g.cs
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\obj\Debug\App.g.cs
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine_MarkupCompile.cache
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine_MarkupCompile.lref
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\obj\Debug\MainWindow.baml
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.g.resources
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.Properties.Resources.resources
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.csproj.GenerateResource.Cache
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.exe
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Math Logic\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.pdb
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\bin\Debug\TurMachine.exe.config
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.exe
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.pdb
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\bin\Debug\TurMachine.exe
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\bin\Debug\TurMachine.pdb
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.csprojResolveAssemblyReference.cache
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\obj\Debug\MainWindow.g.cs
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\obj\Debug\App.g.cs
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine_MarkupCompile.cache
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine_MarkupCompile.lref
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\obj\Debug\MainWindow.baml
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.g.resources
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.Properties.Resources.resources
+C:\Users\etokt_000\Desktop\Utility\ИТМО\TurMachC#\TurMachine\TurMachine\obj\Debug\TurMachine.csproj.GenerateResource.Cache

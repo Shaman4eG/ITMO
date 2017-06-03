@@ -1,0 +1,74 @@
+﻿<project name="Lab3" basedir="." default="build">
+
+  <property file="build.properties"/>
+  
+   <path id="classpath.test">
+    <pathelement location="${jar.src.dir}/${junit}"/>
+    <pathelement location="${test.build.dir}"/>
+    <pathelement location="${classes.build.dir}"/>
+  </path>
+  
+  
+  
+  <target name="clean">
+    <delete dir="${classes.build.dir}"/>
+    <delete dir="${test.build.dir}"/>
+  </target>
+      
+  <target name="compile">
+    <mkdir dir="${classes.build.dir}"/>
+    <javac srcdir="${code.src.dir}" destdir="${classes.build.dir}" includeantruntime="false"/>
+  </target>
+
+  <target name="build" depends="compile">
+    <mkdir dir="${jar.build.dir}"/>
+    <jar destfile="${jar.build.dir}/${ant.project.name}.jar" basedir="${classes.build.dir}">
+      <manifest>
+        <attribute name="Main-Class" value="Program3"/>
+        <attribute name="Created-By" value="GD"/>
+      </manifest>
+    </jar>
+  </target>
+  
+  <target name="test-compile" depends="compile">
+    <mkdir dir="${test.build.dir}"/>
+    <javac srcdir="${test.src.dir}" destdir="${test.build.dir}" includeantruntime="false">
+        <classpath refid="classpath.test"/>
+    </javac>
+  </target>
+  
+  <target name="test" depends="build, test-compile">
+    <junit printsummary="true" haltonfailure="yes">
+      <formatter type="plain" usefile="false"/>
+      <test name="Test1"/>
+      <classpath>
+        <path refid="classpath.test"/>
+      </classpath>
+    </junit>
+  </target>
+ 
+
+  <target name="music" depends="build">
+    <exec executable="cmd">
+      <arg value="/c"/>                 <!-- Closes new instance of cmd after sound was made.-->
+      <arg value="music.bat 2> nul"/>   <!-- '2> nul' redirects stderr to nul, so error text is not shown.-->
+    </exec>
+  </target>
+
+  <target name="alt">
+    <replace file="${code.src.dir}/${srcFileName}" token="Punto"         value="Dotty"/>
+    <replace file="${code.src.dir}/${srcFileName}" token="Forma"         value="Charty"/>
+    <replace file="${code.src.dir}/${srcFileName}" token="dotsOnChart"   value="dotsOnGraph"/>
+    <replace file="${code.src.dir}/${srcFileName}" token="notInZoneDots" value="outOfZoneDots"/>
+    <antcall target="build"/>
+  </target>
+
+  <target name="revert_alt">
+    <replace file="${code.src.dir}/${srcFileName}" token="Dotty"         value="Punto"/>
+    <replace file="${code.src.dir}/${srcFileName}" token="Charty"        value="Forma"/>
+    <replace file="${code.src.dir}/${srcFileName}" token="dotsOnGraph"   value="dotsOnChart"/>
+    <replace file="${code.src.dir}/${srcFileName}" token="outOfZoneDots" value="notInZoneDots"/>
+    <antcall target="build"/>
+  </target>
+  
+</project>

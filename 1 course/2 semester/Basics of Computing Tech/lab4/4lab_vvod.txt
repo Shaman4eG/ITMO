@@ -1,0 +1,1 @@
+04B a F200 w 3061 w 405F w 2676 w 6061 w 3061 w F200 w 405E w F800 w 2676 w 4061 w 3061 w F200 w 4060 w F800 w 2676 w 6061 w 3061 w F000 w 0010 w F031 w 0E74 w 676 a 0000 w A67F w 6683 w 967F w 4683 w 3682 w 4682 w 4684 w CE76 w F200 w 4683 w CE76 w 0000 w 0026 w 0062 w 04B a c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c c

@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Implementation-Version: 463
+Build-Jdk: 1.6.0_81
+Built-By: dima
+Created-By: Apache Maven
+Main-Class: ru.ifmo.cs.bcomp.ui.BCompApp
+Archiver-Version: Plexus Archiver
+

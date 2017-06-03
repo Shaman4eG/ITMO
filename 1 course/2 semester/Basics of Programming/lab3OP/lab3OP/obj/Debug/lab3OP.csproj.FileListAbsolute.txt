@@ -1,0 +1,12 @@
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Лабы ОП\BankMetanit\lab3OP\lab3OP\bin\Debug\lab3OP.exe.config
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Лабы ОП\BankMetanit\lab3OP\lab3OP\bin\Debug\lab3OP.exe
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Лабы ОП\BankMetanit\lab3OP\lab3OP\bin\Debug\lab3OP.pdb
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Лабы ОП\BankMetanit\lab3OP\lab3OP\obj\Debug\lab3OP.exe
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Лабы ОП\BankMetanit\lab3OP\lab3OP\obj\Debug\lab3OP.pdb
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\1kurs\Лабы ОП\BankMetanit\lab3OP\lab3OP\obj\Debug\lab3OP.csprojResolveAssemblyReference.cache
+C:\Users\etokt_000\Desktop\lab3OP\lab3OP\bin\Debug\lab3OP.exe.config
+C:\Users\etokt_000\Desktop\lab3OP\lab3OP\obj\Debug\lab3OP.exe
+C:\Users\etokt_000\Desktop\lab3OP\lab3OP\obj\Debug\lab3OP.pdb
+C:\Users\etokt_000\Desktop\lab3OP\lab3OP\bin\Debug\lab3OP.exe
+C:\Users\etokt_000\Desktop\lab3OP\lab3OP\bin\Debug\lab3OP.pdb
+C:\Users\etokt_000\Desktop\lab3OP\lab3OP\obj\Debug\lab3OP.csprojResolveAssemblyReference.cache

@@ -1,0 +1,6 @@
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\Лабы ОП\BankMetanit\lab1OP\lab1OP\bin\Debug\lab1OP.exe.config
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\Лабы ОП\BankMetanit\lab1OP\lab1OP\bin\Debug\lab1OP.exe
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\Лабы ОП\BankMetanit\lab1OP\lab1OP\bin\Debug\lab1OP.pdb
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\Лабы ОП\BankMetanit\lab1OP\lab1OP\obj\Debug\lab1OP.csprojResolveAssemblyReference.cache
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\Лабы ОП\BankMetanit\lab1OP\lab1OP\obj\Debug\lab1OP.exe
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\Лабы ОП\BankMetanit\lab1OP\lab1OP\obj\Debug\lab1OP.pdb

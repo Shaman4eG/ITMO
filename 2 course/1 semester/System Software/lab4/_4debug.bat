@@ -1,0 +1,1 @@
+..\..\..\..\TASM\td.exe _lab4.exe

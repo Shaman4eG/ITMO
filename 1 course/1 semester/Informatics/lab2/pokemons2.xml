@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pokemons format="animation" release_year="1996"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://msiter.ru schema_pockemons.xsd">
+<group name="physical">
+<type name="poison">
+<species name="Arbok">
+<ability>Intimidate  </ability>
+<height uom="meter">3.51  </height>
+<weight uom="kg">65.0  </weight>
+</species>  
+</type>
+</group>
+<group name="special">
+<type name="electric">
+<species name="Pikachu">
+<ability>Static  </ability>
+<height uom="meter">0.41  </height>
+<weight uom="kg">6.0  </weight>
+</species>
+</type>
+</group>
+<group name="mixed">
+<type name="normal/flying">
+<species name="Fearow">
+<ability>Keen Eye  </ability>
+<height uom="meter">1.19  </height>
+<weight uom="kg">38.0  </weight>
+</species>
+</type>
+</group>
+</pokemons>

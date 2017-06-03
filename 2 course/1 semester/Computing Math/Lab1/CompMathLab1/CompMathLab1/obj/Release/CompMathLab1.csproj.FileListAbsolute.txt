@@ -1,0 +1,13 @@
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\bin\Release\CompMathLab1.exe.config
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\bin\Release\CompMathLab1.exe
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\bin\Release\CompMathLab1.pdb
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Release\MainWindow.g.cs
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Release\App.g.cs
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Release\CompMathLab1_MarkupCompile.cache
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Release\CompMathLab1_MarkupCompile.lref
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Release\MainWindow.baml
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Release\CompMathLab1.g.resources
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Release\CompMathLab1.Properties.Resources.resources
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Release\CompMathLab1.csproj.GenerateResource.Cache
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Release\CompMathLab1.exe
+C:\Users\Daniel3\Desktop\Utility\ITMO\ИТМО\2kurs\Computational Math\CompMathLab1\CompMathLab1\obj\Release\CompMathLab1.pdb
