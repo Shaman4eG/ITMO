@@ -1,0 +1,106 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <title>Лабораторная работа</title>
+    <meta charset=utf8 />
+    <style>
+		html {
+			font-family: Tahoma;
+			background-color: #ffffcc;
+		}
+
+		.cell {
+		float: left;
+		width: 100px;
+		height: 100px;
+		border: 1px solid black;
+		margin:1px;
+		border:1px solid black;
+		border-radius:5px;
+		text-align:center;
+		}
+
+		.cell:nth-child(even) {
+		background: lightblue;
+		}
+
+		.cell:nth-child(odd) {
+		background: lightgreen;
+		}
+
+		.clear {
+		clear: both;
+		}
+
+		#header p {
+			text-align: center;
+			color: black;
+			font-size: 24px;
+			font-family: serif;
+			background: lightgreen;
+			border: 1px solid black;
+			border-radius: 15px;
+		}
+
+		p {
+		background: lightgreen;
+		}
+    </style>
+  </head>
+  <body>
+    <div id="header">
+        <p>Гхази Даниэль, гр. 3218, вариант 9499</p>
+    </div>
+	
+    <div>
+		<div class="cell">
+		   X
+		</div>
+		
+		<div class="cell">
+		   Y
+		</div>
+		
+		<div class="cell">
+		   R
+		</div>
+		
+		<div class="cell">
+		   Текущее время
+		</div>
+		
+		<div class="cell">
+		   Время загрузки
+		</div>
+		
+		<div class="cell">
+		   Результат
+		</div>
+	</div>
+	
+    <div class="clear"></div>
+    
+	<div>
+		<div class="cell">
+		   {{X}}
+		</div>
+		<div class="cell">
+		   {{Y}}
+		</div>
+		<div class="cell">
+		   {{R}}
+		</div>
+		<div class="cell">
+		   {{CURRENT_TIME}}
+		</div>
+		<div class="cell">
+		   {{LOAD_TIME}}
+		</div>
+		<div class="cell">
+		   {{RESULT}}
+		</div>
+	</div>
+	
+    
+  </body>
+</html>

@@ -1,0 +1,143 @@
+﻿<!doctype html>
+<html>
+  <head>
+    <title>Лабораторная работа</title>
+    <meta charset=utf8 />
+    <style>
+		input {
+			margin: 0.5%;
+		}
+		
+		input[value]{
+			color: blue;
+		}
+		
+		[class=rGuys]{
+			background-color: inherit;
+		}
+		
+		div {
+			background-color: white;
+		}
+
+		html {
+			font-family: Tahoma;
+			background-color: #ffffcc;
+		}
+		
+		.button:hover {
+			background-color: yellow;
+		}
+
+		#header p {
+			text-align: center;
+			color: black;
+			font-size: 24px;
+			font-family: serif;
+			background: lightgreen;
+			border: 1px solid black;
+			border-radius: 15px;
+		}
+		
+	
+    </style>
+    </head>
+  <body>
+  
+    <div id="header">
+        <p>Гхази Даниэль, гр. 3218, вариант 9499</p>
+        <p id="error"></p>
+    </div>
+	
+    <form>
+		<div>
+			<hr>
+			<p id="xGuys">x 
+				<input type="button" class="button" value="-4" onclick="xInput(-4)">
+				<input type="button" class="button" value="-3" onclick="xInput(-3)">
+				<input type="button" class="button" value="-2" onclick="xInput(-2)">
+				<input type="button" class="button" value="-1" onclick="xInput(-1)">
+				<input type="button" class="button" value="0" onclick="xInput(0)">
+				<input type="button" class="button" value="1" onclick="xInput(1)">
+				<input type="button" class="button" value="2" onclick="xInput(2)">
+				<input type="button" class="button" value="3" onclick="xInput(3)">
+				<input type="button" class="button" value="4" onclick="xInput(4)">
+			</p>
+			<p id="xValue">x = 0</p>
+			<hr>
+		</div>
+		
+		<div>
+			<hr>
+			<p>y =
+				<input type="text" name="y" id="y" maxlength="5">
+			</p>
+			<hr>
+		</div>
+		
+		<div class="rGuys">
+			<hr>
+			<p>R =	
+				<input type="button" class="button" value="1" onclick="rInput(1)">
+				<input type="button" class="button" value="1.5" onclick="rInput(1.5)">
+				<input type="button" class="button" value="2" onclick="rInput(2)">
+				<input type="button" class="button" value="2.5" onclick="rInput(2.5)">
+				<input type="button" class="button" value="3" onclick="rInput(3)">
+			</p>
+			<p id="rValue">R = 1</p>
+			<hr>
+		</div>
+		
+    </form>
+	
+	<form action="/~s208078/lab6/info.php" onsubmit="return validateForm()" method=POST>
+		<div>
+			<hr>
+			<input type="submit" class="button" name="submit" value="Calculate" onclick="setVariables()">
+			<hr>
+			
+			<input type="hidden" name="realX" id="realX">
+			<input type="hidden" name="realY" id="realY">
+			<input type="hidden" name="realR" id="realR">
+		</div
+	</form>
+    
+     <script>    
+		var x = 0;
+		var r = 1;
+	 
+		function xInput(value){
+			document.getElementById("xValue").innerHTML = "x = " + value;
+			x = value;
+		}
+		
+		function rInput(value){
+			document.getElementById("rValue").innerHTML = "R = " + value;
+			r = value;
+		}
+		
+		function setVariables(){
+			document.getElementById("realX").value = x;
+			document.getElementById("realY").value = document.getElementById("y").value;
+			document.getElementById("realR").value = r;
+		}
+	 
+	 
+		function validateForm() {
+			var y = document.getElementById("y").value;			
+			
+			if ((y == '') || isNaN(y) ||  (y < -3 || y > 5)){
+				document.getElementById("error").innerHTML = "Validation failed! (y not in [-3..5])";        
+				document.getElementById("error").style.color = "red";
+				return false;
+			}
+			else{
+				document.getElementById("error").innerHTML = "";
+				return true;
+			}   
+		}
+		
+    </script>
+	
+  </body>
+</html>
