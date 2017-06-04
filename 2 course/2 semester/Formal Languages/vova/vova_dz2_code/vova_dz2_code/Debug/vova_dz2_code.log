@@ -1,0 +1,5 @@
+﻿  main.cpp
+c:\users\daniel3\desktop\фяиг\vova\vova_dz2_code\vova_dz2_code\main.cpp(42): warning C4018: <: несоответствие типов со знаком и без знака
+c:\users\daniel3\desktop\фяиг\vova\vova_dz2_code\vova_dz2_code\main.cpp(63): warning C4018: <: несоответствие типов со знаком и без знака
+  vova_dz2_code.vcxproj -> C:\Users\Daniel3\Desktop\ФЯиГ\vova\vova_dz2_code\Debug\vova_dz2_code.exe
+  vova_dz2_code.vcxproj -> C:\Users\Daniel3\Desktop\ФЯиГ\vova\vova_dz2_code\Debug\vova_dz2_code.pdb (Full PDB)

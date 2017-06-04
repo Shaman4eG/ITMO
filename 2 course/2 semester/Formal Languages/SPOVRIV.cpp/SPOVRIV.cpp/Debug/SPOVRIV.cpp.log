@@ -1,0 +1,5 @@
+﻿  main.cpp
+c:\users\daniel3\desktop\фяиг\spovriv.cpp\spovriv.cpp\main.cpp(19): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.10240.0\ucrt\conio.h(452): note:  см. объявление "getch"
+  SPOVRIV.cpp.vcxproj -> C:\Users\Daniel3\Desktop\ФЯиГ\SPOVRIV.cpp\Debug\SPOVRIV.cpp.exe
+  SPOVRIV.cpp.vcxproj -> C:\Users\Daniel3\Desktop\ФЯиГ\SPOVRIV.cpp\Debug\SPOVRIV.cpp.pdb (Full PDB)
