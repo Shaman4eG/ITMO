@@ -6,3 +6,7 @@ se.ifmo.ru/~s208078/lab6
 
 # Изменить содержимое файла
 cat > ИМЯ_ФАЙЛА
+
+# Путь до GlassFish
+cd /
+cd opt/glassfish3/bin
