@@ -61,8 +61,8 @@ MenuItems getAndCheckMenuItem()
 
 
 void doChosenAction(bool *exit, MenuItems menuItem, std::vector<ElementOfHashTable> &hashTable,
-					int* numberOfCollisions, int* numberOfElementsGivenForInput, int* numberOfSearchesMadeByUser,
-					int* numberOfComparisons, bool* hashTableExists)
+	int* numberOfCollisions, int* numberOfElementsGivenForInput, int* numberOfSearchesMadeByUser,
+	int* numberOfComparisons, bool* hashTableExists)
 {
 	switch (menuItem)
 	{
@@ -96,7 +96,7 @@ void doChosenAction(bool *exit, MenuItems menuItem, std::vector<ElementOfHashTab
 }
 
 void inputFromFile(std::vector<ElementOfHashTable> &hashTable,
-				   int* numberOfCollisions, int* numberOfElementsGivenForInput)
+	int* numberOfCollisions, int* numberOfElementsGivenForInput)
 {
 	hashTable.clear();
 	hashTable.resize(constants::baseSizeOfHashTable * constants::startingExtentionCoefficientOfHashTable);
@@ -137,16 +137,16 @@ std::string processNewElement(std::string newElement)
 
 	if (newElement.size() > processedElement.size()) newElement.resize(processedElement.size());
 
-	for (int i = 0; i < newElement.size(); i++) 
+	for (int i = 0; i < newElement.size(); i++)
 	{
 		newElement[i] = tolower(newElement[i]);
-		if ((newElement[i] >= constants::asciiCodeOfLetter_a) && 
+		if ((newElement[i] >= constants::asciiCodeOfLetter_a) &&
 			(newElement[i] <= constants::asciiCodeOfLetter_z))
 		{
 			processedElement[indexToPutNewLetter++] = newElement[i];
 		}
 	}
-	
+
 	// No letters in word, hence do not add it to hash-table.
 	if (indexToPutNewLetter == 0) return constants::noLettersInWordMarker;
 
@@ -154,7 +154,7 @@ std::string processNewElement(std::string newElement)
 }
 
 void insertNewElement(std::vector<ElementOfHashTable> &hashTable, ElementOfHashTable** freePtr,
-					  std::string newElement, int* numberOfCollisions, int* numberOfElementsGivenForInput)
+	std::string newElement, int* numberOfCollisions, int* numberOfElementsGivenForInput)
 {
 	int hashCode = hashFunction(newElement);
 	ElementOfHashTable* slotPtr = &hashTable[hashCode];
@@ -196,7 +196,7 @@ int hashFunction(std::string element)
 {
 	int bias = constants::biasForEachSymbolToBeginningOfHashTable;
 	int hashCode = element[0] - bias;
-	
+
 	for (int i = 1; i < 3; i++)
 	{
 		if (element[i] != ' ') hashCode += element[i] - bias;
@@ -241,7 +241,7 @@ void searchElement(std::vector<ElementOfHashTable> &hashTable, int* numberOfComp
 			slotPtr = slotPtr->referenceToCollidedElement;
 			continue;
 		}
-		else 
+		else
 		{
 			std::cout << "Not found!\n\n";
 			return;
@@ -251,8 +251,8 @@ void searchElement(std::vector<ElementOfHashTable> &hashTable, int* numberOfComp
 
 
 
-void showStats(int* numberOfCollisions, int* numberOfElementsGivenForInput, 
-			   int* numberOfSearchesMadeByUser, int* numberOfComparisons)
+void showStats(int* numberOfCollisions, int* numberOfElementsGivenForInput,
+	int* numberOfSearchesMadeByUser, int* numberOfComparisons)
 {
 	double averageNumberOfCollisions = 0;
 	double d_NumberOfCollisions = *numberOfCollisions;
@@ -269,8 +269,8 @@ void showStats(int* numberOfCollisions, int* numberOfElementsGivenForInput,
 	}
 
 	std::cout << "Average number of collisions = " << averageNumberOfCollisions << std::endl;
-	std::cout << "Average number of comaparisons made during search = " << averageNumberOfComparisonsMadeDuringSearch 
-			  << std::endl << std::endl;
+	std::cout << "Average number of comaparisons made during search = " << averageNumberOfComparisonsMadeDuringSearch
+		<< std::endl << std::endl;
 }
 
 

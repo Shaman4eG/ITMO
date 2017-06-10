@@ -43,20 +43,20 @@ void showMenu();
 MenuItems getAndCheckMenuItem();
 
 void doChosenAction(bool *exit, MenuItems menuItem, std::vector<ElementOfHashTable> &hashTable,
-					int* numberOfCollisions, int* numberOfElementsGivenForInput, int* numberOfSearchesMadeByUser,
-					int* numberOfComparisons, bool* hashTableExists);
+	int* numberOfCollisions, int* numberOfElementsGivenForInput, int* numberOfSearchesMadeByUser,
+	int* numberOfComparisons, bool* hashTableExists);
 
 void inputFromFile(std::vector<ElementOfHashTable> &hashTable,
-				   int* numberOfCollisions, int* numberOfElementsGivenForInput);
+	int* numberOfCollisions, int* numberOfElementsGivenForInput);
 std::string processNewElement(std::string newElement);
 void insertNewElement(std::vector<ElementOfHashTable> &hashTable, ElementOfHashTable** freePtr,
-					  std::string newElement, int* numberOfCollisions, int* numberOfElementsGivenForInput);
+	std::string newElement, int* numberOfCollisions, int* numberOfElementsGivenForInput);
 int hashFunction(std::string element);
 
 void searchElement(std::vector<ElementOfHashTable> &hashTable, int* numberOfComparisons);
 
 void showStats(int* numberOfCollisions, int* numberOfElementsGivenForInput,
-			   int* numberOfSearchesMadeByUser, int* numberOfComparisons);
+	int* numberOfSearchesMadeByUser, int* numberOfComparisons);
 
 
 
