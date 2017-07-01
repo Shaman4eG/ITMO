@@ -1,0 +1,17 @@
+asadmin create-domain --domaindir domain1111
+
+
+Default port 4848 for Admin is in use. Using 50301
+Default port 8080 for HTTP Instance is in use. Using 50302
+
+
+asadmin stop-domain --domaindir domain1111
+asadmin start-domain --domaindir domain1111
+
+Port: 50301
+kek: se.ifmo.ru:50301
+Add
+
+Port: 50302
+kek: se.ifmo.ru:50302
+Add
