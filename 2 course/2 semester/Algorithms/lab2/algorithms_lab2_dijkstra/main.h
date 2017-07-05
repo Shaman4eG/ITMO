@@ -16,12 +16,12 @@
 
 void showMenu();
 MenuItems getAndCheckMenuItem();
-void doChosenAction(MenuItems menuItem, bool *exit, bool *graphWasCreated, std::vector< std::vector< ElementOfAdjacencyList > > &ADJ,
+void doChosenAction(MenuItems menuItem, bool *exit, bool *graphWasCreated, std::vector<ElementOfAdjacencyList*> &ADJ,
 	GraphParameters *graphParameters, std::vector<unsigned long> &dist, std::vector<unsigned long> &up);
 
 GraphParameters getGraphParameters();
 
 void findingShortestPath(bool *graphWasCreated, std::vector<unsigned long> &dist, std::vector<unsigned long> &up,
-	std::vector< std::vector< ElementOfAdjacencyList > > &ADJ, GraphParameters graphParameters);
-void ldgDijkstraDHeap(std::vector< std::vector< ElementOfAdjacencyList > > &ADJ, std::vector<unsigned long> &dist,
-	std::vector<unsigned long> &up, GraphParameters graphParameters);
+	std::vector<ElementOfAdjacencyList*> &ADJ, GraphParameters *graphParameters);
+void ldgDijkstraDHeap(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<unsigned long> &dist,
+	std::vector<unsigned long> &up, GraphParameters *graphParameters);

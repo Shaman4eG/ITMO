@@ -8,7 +8,7 @@ int main()
 	GraphParameters graphParameters;
 
 	// Pointers to lists of adjacent vertices.
-	std::vector< std::vector< ElementOfAdjacencyList > > ADJ;
+	std::vector<ElementOfAdjacencyList*> ADJ;
 	// Represents final shortest distance from vertex 's' to vertex 'name[i]'.
 	std::vector<unsigned long> dist;
 	// Keeps penultimate vertex in finished path from 's' to 'name[i]'.
@@ -62,7 +62,7 @@ MenuItems getAndCheckMenuItem()
 	}
 }
 
-void doChosenAction(MenuItems menuItem, bool *exit, bool *graphWasCreated, std::vector< std::vector< ElementOfAdjacencyList > > &ADJ,
+void doChosenAction(MenuItems menuItem, bool *exit, bool *graphWasCreated, std::vector<ElementOfAdjacencyList*> &ADJ,
 					GraphParameters *graphParameters, std::vector<unsigned long> &dist, std::vector<unsigned long> &up)
 {
 	switch (menuItem)
@@ -74,7 +74,7 @@ void doChosenAction(MenuItems menuItem, bool *exit, bool *graphWasCreated, std::
 		break;
 
 	case FIND_SHORTEST_PATH:
-		findingShortestPath(graphWasCreated, up, dist, ADJ, *graphParameters);
+		findingShortestPath(graphWasCreated, up, dist, ADJ, graphParameters);
 		break;
 
 	case EXIT:
@@ -89,7 +89,7 @@ GraphParameters getGraphParameters()
 {
 	GraphParameters graphParameters;
 	graphParameters.numberOfVertices = 4;
-	graphParameters.numberOfEdges = 6;
+	graphParameters.numberOfEdges = 11;
 
 	return graphParameters;
 }
@@ -97,7 +97,7 @@ GraphParameters getGraphParameters()
 
 
 void findingShortestPath(bool *graphWasCreated, std::vector<unsigned long> &dist, std::vector<unsigned long> &up,
-						 std::vector< std::vector< ElementOfAdjacencyList > > &ADJ, GraphParameters graphParameters)
+						 std::vector<ElementOfAdjacencyList*> &ADJ, GraphParameters *graphParameters)
 {
 	if (!(*graphWasCreated))
 	{
@@ -108,21 +108,21 @@ void findingShortestPath(bool *graphWasCreated, std::vector<unsigned long> &dist
 	ldgDijkstraDHeap(ADJ, dist, up, graphParameters);
 }
 
-void ldgDijkstraDHeap(std::vector< std::vector< ElementOfAdjacencyList > > &ADJ, std::vector<unsigned long> &dist, 
-					  std::vector<unsigned long> &up, GraphParameters graphParameters)
+void ldgDijkstraDHeap(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<unsigned long> &dist, 
+					  std::vector<unsigned long> &up, GraphParameters *graphParameters)
 {
-	up.resize(graphParameters.numberOfVertices + 1);
-	dist.resize(graphParameters.numberOfVertices + 1);
+	up.resize(graphParameters->numberOfVertices + 1);
+	dist.resize(graphParameters->numberOfVertices + 1);
 
 	// Array of vertices' names. Name of vertex equals its index.
-	std::vector<unsigned int> name(graphParameters.numberOfVertices + 1);
+	std::vector<unsigned int> name(graphParameters->numberOfVertices + 1);
 	// Represents current estimation of distance from vertex 's' to vertex 'name[i]'.
-	std::vector<unsigned long> key(graphParameters.numberOfVertices + 1);
+	std::vector<unsigned long> key(graphParameters->numberOfVertices + 1);
 	// Represents names' indices. Is supposed to be correct at that: index[name[i]] = i
-	std::vector<unsigned int> index(graphParameters.numberOfVertices + 1);
+	std::vector<unsigned int> index(graphParameters->numberOfVertices + 1);
 
 	// Initializing data keepers.
-	for (int i = 1; i <= graphParameters.numberOfVertices; i++)
+	for (int i = 1; i <= graphParameters->numberOfVertices; i++)
 	{
 		up[i] = 0;
 		dist[i] = ULLONG_MAX;
@@ -131,17 +131,31 @@ void ldgDijkstraDHeap(std::vector< std::vector< ElementOfAdjacencyList > > &ADJ,
 		key[i] = ULLONG_MAX;
 	}
 
-	key[graphParameters.startingVertex] = 0;
-	int nq = graphParameters.numberOfVertices;
+	key[graphParameters->startingVertex] = 0;
+	int nq = graphParameters->numberOfVertices;
 	PriorityQueue priorityQueue(index, name, key, nq, constants::d);
 	unsigned int name1 = name[1];
 	unsigned long key1 = key[1];
 
 	while (nq > 0)
 	{
-		priorityQueue.getMin(name1, key1, name, key, n, d);
+		priorityQueue.getMin(index, name1, key1, name, key, &nq, constants::d);
+		int i = name1;
+		dist[i] = key1;
+		ElementOfAdjacencyList *p = ADJ[i];
+		while (p != NULL)
+		{
+			unsigned int j = p->name;
+			unsigned int jq = index[j];
+			if (dist[jq] == ULLONG_MAX)
+			
+				if (key[jq] > dist[i] + p->weight)
+				{
+					key[jq] = dist[i] + p->weight;
+					priorityQueue.emerge(index, jq, name, key, nq, constants::d);
+				}
+			
+			p = p->next;
+		}
 	}
-
-
-
 }

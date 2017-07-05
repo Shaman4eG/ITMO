@@ -5,11 +5,7 @@
 #include <vector>
 #include <ctime>
 
-void formGraph(bool *graphWasCreated, std::vector< std::vector< ElementOfAdjacencyList > > &ADJ, GraphParameters *graphParameters);
-void createVectorsForAdjacencyLists(GraphParameters graphParameters, std::vector< std::vector< ElementOfAdjacencyList > > &ADJ,
-	int edgesInLastRow, int resizeValue);
-void fillCompleteRows(std::vector< std::vector< ElementOfAdjacencyList > > &ADJ, int resizeValue, GraphParameters graphParameters);
-void fillLastRow(std::vector< std::vector< ElementOfAdjacencyList > > &ADJ, int resizeValue, int edgesInLastRow,
-	GraphParameters graphParameters);
-unsigned long generateAdjacentVertexName(std::vector<ElementOfAdjacencyList> &currentVertexAdjacencyData, int currentElementIndex,
-	GraphParameters graphParameters);
+void formGraph(bool *graphWasCreated, std::vector<ElementOfAdjacencyList*> &ADJ, GraphParameters *graphParameters);
+void fillCompleteRows(std::vector<ElementOfAdjacencyList*> &ADJ, int numberOfCompleteRows, GraphParameters *graphParameters);
+void fillLastRow(std::vector<ElementOfAdjacencyList*> &ADJ, int edgesInLastRow, GraphParameters *graphParameters);
+unsigned long generateAdjacentVertexName(ElementOfAdjacencyList *firstElementOfAdjacencyList, unsigned int numberOfVertices);

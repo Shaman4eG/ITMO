@@ -8,8 +8,8 @@ PriorityQueue::PriorityQueue( std::vector<unsigned int> &index, std::vector<unsi
 
 void PriorityQueue::immerse(std::vector<unsigned int> &index, int i, std::vector<unsigned int> &name, std::vector<unsigned long> &key, int n, int d)
 {
-	unsigned int key0 = key[i];
-	int name0 = name[i];
+	unsigned long key0 = key[i];
+	unsigned int name0 = name[i];
 	int c = minChild(i, key, n, d);
 
 	while ((c != i) && (key0 > key[c]))
@@ -22,6 +22,26 @@ void PriorityQueue::immerse(std::vector<unsigned int> &index, int i, std::vector
 	}
 
 	key[i] = key0; 
+	name[i] = name0;
+	index[name[i]] = i;
+}
+
+void PriorityQueue::emerge(std::vector<unsigned int> &index, int i, std::vector<unsigned int> &name, std::vector<unsigned long> &key, int n, int d)
+{
+	unsigned long key0 = key[i];
+	unsigned int name0 = name[i];
+	int p = father(n, d, i);
+	
+	while ((i != 1) && (key[p] > key0))
+	{
+		key[i] = key[p];
+		name[i] = name[p];
+		index[name[i]] = i;
+		i = p;
+		p = father(n, d, i);
+	}
+
+	key[i] = key0;
 	name[i] = name0;
 	index[name[i]] = i;
 }
@@ -62,4 +82,27 @@ int PriorityQueue::lastChild(int n, int d, int i)
 	int k = firstChild(n, d, i);
 	if (k == 0) return 0;
 	else return k + d - 1;
+}
+
+int PriorityQueue::father(int n, int d, int i)
+{
+	return ((i - 2) / d) + 1;
+}
+
+
+
+void PriorityQueue::getMin(std::vector<unsigned int> &index, int name1, unsigned int key1, std::vector<unsigned int> &name,
+	std::vector<unsigned long> &key, int *n, int d)
+{
+	name1 = name[1];
+	key1 = key[1];
+
+	name[1] = name[*n];
+	key[1] = key[*n];
+
+	name[*n] = name1;
+	key[*n] = key1;
+
+	(*n)--;
+	if (*n > 1) immerse(index, 1, name, key, *n, d);
 }
