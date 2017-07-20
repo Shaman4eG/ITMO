@@ -88,8 +88,9 @@ void doChosenAction(MenuItems menuItem, bool *exit, bool *graphWasCreated, std::
 GraphParameters getGraphParameters()
 {
 	GraphParameters graphParameters;
-	graphParameters.numberOfVertices = 4;
-	graphParameters.numberOfEdges = 11;
+	graphParameters.numberOfVertices = 6;
+	graphParameters.numberOfEdges = 15;
+	graphParameters.highestPossibleWeight = 10;
 
 	return graphParameters;
 }
@@ -125,10 +126,10 @@ void ldgDijkstraDHeap(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<uns
 	for (int i = 1; i <= graphParameters->numberOfVertices; i++)
 	{
 		up[i] = 0;
-		dist[i] = ULLONG_MAX;
+		dist[i] = ULONG_MAX;
 		index[i] = i;
 		name[i] = i;
-		key[i] = ULLONG_MAX;
+		key[i] = ULONG_MAX;
 	}
 
 	key[graphParameters->startingVertex] = 0;
@@ -137,9 +138,10 @@ void ldgDijkstraDHeap(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<uns
 	unsigned int name1 = name[1];
 	unsigned long key1 = key[1];
 
+	// TODO: ондслюрэ н nq  
 	while (nq > 0)
 	{
-		priorityQueue.getMin(index, name1, key1, name, key, &nq, constants::d);
+		priorityQueue.getMin(index, &name1, &key1, name, key, &nq, constants::d);
 		int i = name1;
 		dist[i] = key1;
 		ElementOfAdjacencyList *p = ADJ[i];
@@ -147,14 +149,12 @@ void ldgDijkstraDHeap(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<uns
 		{
 			unsigned int j = p->name;
 			unsigned int jq = index[j];
-			if (dist[jq] == ULLONG_MAX)
-			
-				if (key[jq] > dist[i] + p->weight)
-				{
-					key[jq] = dist[i] + p->weight;
-					priorityQueue.emerge(index, jq, name, key, nq, constants::d);
-				}
-			
+			if (key[jq] > dist[i] + p->weight)
+			{
+				key[jq] = dist[i] + p->weight;
+				priorityQueue.emerge(index, jq, name, key, nq, constants::d);
+				up[j] = i;
+			}
 			p = p->next;
 		}
 	}

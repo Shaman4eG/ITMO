@@ -18,5 +18,5 @@ public:
 
 	void immerse(std::vector<unsigned int> &index, int i, std::vector<unsigned int> &name, std::vector<unsigned long> &key, int n, int d);
 	void emerge(std::vector<unsigned int> &index, int i, std::vector<unsigned int> &name, std::vector<unsigned long> &key, int n, int d);
-	void getMin(std::vector<unsigned int> &index, int name1, unsigned int key1, std::vector<unsigned int> &name, std::vector<unsigned long> &key, int *n, int d);
+	void getMin(std::vector<unsigned int> &index, unsigned int *name1, unsigned long *key1, std::vector<unsigned int> &name, std::vector<unsigned long> &key, int *n, int d);
 };

@@ -5,14 +5,14 @@
 namespace constants
 {
 	// Value of D-Heap. 
-	const int d = 3;
+	const int d = 2;
 
 	// Checks that user chose valid menu item.
 	const std::string menuRegex = "[1-3]";
 	const std::string numberWithLessThan8DigitsRegex = "^\d{1,7}$";
 
 	// Default min and max weights of graph's edges.
-	const unsigned int standardLowestWeight = 0;
+	const unsigned int standardLowestWeight = 1;
 	const unsigned int standardHighestWeight = 1000000;
 
 	// Prevents overflows.

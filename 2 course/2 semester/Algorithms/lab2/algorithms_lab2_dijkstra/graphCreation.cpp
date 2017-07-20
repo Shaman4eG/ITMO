@@ -31,8 +31,8 @@ void fillCompleteRows(std::vector<ElementOfAdjacencyList*> &ADJ, int numberOfCom
 		for (int row = 1; row <= numberOfCompleteRows; row++)
 		{
 			ElementOfAdjacencyList *newElem = new ElementOfAdjacencyList();
-			newElem->name = generateAdjacentVertexName(ADJ[column], graphParameters->numberOfVertices);
-			newElem->weight = rand() * rand() % graphParameters->highestPossibleWeight;
+			newElem->name = generateAdjacentVertexName(ADJ[column], graphParameters->numberOfVertices, column);
+			newElem->weight = generateWeight();
 			newElem->next = ADJ[column];
 			ADJ[column] = newElem;
 		}
@@ -45,8 +45,8 @@ void fillLastRow(std::vector<ElementOfAdjacencyList*> &ADJ, int edgesInLastRow, 
 	for (int column = 1; column <= edgesInLastRow; column++)
 	{
 			ElementOfAdjacencyList *newElem = new ElementOfAdjacencyList();
-			newElem->name = generateAdjacentVertexName(ADJ[column], graphParameters->numberOfVertices);
-			newElem->weight = rand() * rand() % graphParameters->highestPossibleWeight;
+			newElem->name = generateAdjacentVertexName(ADJ[column], graphParameters->numberOfVertices, column);
+			newElem->weight = generateWeight(); 
 			newElem->next = ADJ[column];
 			ADJ[column] = newElem;
 	}
@@ -55,19 +55,30 @@ void fillLastRow(std::vector<ElementOfAdjacencyList*> &ADJ, int edgesInLastRow, 
 // Randomly generates adjacent vertex. 
 // If this vertex is already in vector, tries another.
 // Else returns vertex name. 
-unsigned long generateAdjacentVertexName(ElementOfAdjacencyList *firstElementOfAdjacencyList, unsigned int numberOfVertices)
+unsigned long generateAdjacentVertexName(ElementOfAdjacencyList *firstElementOfAdjacencyList, unsigned int numberOfVertices, 
+										 int baseVertex)
 {
 
 	ElementOfAdjacencyList *currentElement = firstElementOfAdjacencyList;
 	unsigned long vertexToMakeAdjacent = rand() % numberOfVertices + 1;
 
-	if (currentElement == NULL) return vertexToMakeAdjacent;
+	if (currentElement == NULL)
+	{
+		if (vertexToMakeAdjacent != baseVertex) return vertexToMakeAdjacent;
+		else
+		{
+			vertexToMakeAdjacent++;
+			if (vertexToMakeAdjacent > numberOfVertices) vertexToMakeAdjacent = 1;
+			return vertexToMakeAdjacent;
+		}
+	}
 
 	while (true)
 	{
 		do 
 		{
-			if (currentElement->name == vertexToMakeAdjacent)
+			if ((vertexToMakeAdjacent == currentElement->name) ||
+				(vertexToMakeAdjacent == baseVertex))
 			{
 				vertexToMakeAdjacent++;
 				if (vertexToMakeAdjacent > numberOfVertices) vertexToMakeAdjacent = 1;
@@ -79,4 +90,12 @@ unsigned long generateAdjacentVertexName(ElementOfAdjacencyList *firstElementOfA
 
 		if (currentElement == NULL) return vertexToMakeAdjacent;
 	}
+}
+
+unsigned long generateWeight(GraphParameters *graphParameters)
+{
+	unsigned long weight = rand() % graphParameters->highestPossibleWeight;
+	if (weight < graphParameters->lowestPossibleWeight) weight = graphParameters->lowestPossibleWeight;
+
+	// TODO: опнбепйю, врн бгюхлннапюрмше пеапю хлечр ндхмюйнбши бея
 }

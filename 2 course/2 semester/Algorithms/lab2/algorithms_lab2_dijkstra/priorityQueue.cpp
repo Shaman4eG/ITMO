@@ -81,7 +81,8 @@ int PriorityQueue::lastChild(int n, int d, int i)
 {
 	int k = firstChild(n, d, i);
 	if (k == 0) return 0;
-	else return k + d - 1;
+	else if (k + d - 1 < n) return k + d - 1;
+	else return n;
 }
 
 int PriorityQueue::father(int n, int d, int i)
@@ -91,17 +92,17 @@ int PriorityQueue::father(int n, int d, int i)
 
 
 
-void PriorityQueue::getMin(std::vector<unsigned int> &index, int name1, unsigned int key1, std::vector<unsigned int> &name,
+void PriorityQueue::getMin(std::vector<unsigned int> &index, unsigned int *name1, unsigned long *key1, std::vector<unsigned int> &name,
 	std::vector<unsigned long> &key, int *n, int d)
 {
-	name1 = name[1];
-	key1 = key[1];
+	*name1 = name[1];
+	*key1 = key[1];
 
 	name[1] = name[*n];
 	key[1] = key[*n];
 
-	name[*n] = name1;
-	key[*n] = key1;
+	name[*n] = *name1;
+	key[*n] = *key1;
 
 	(*n)--;
 	if (*n > 1) immerse(index, 1, name, key, *n, d);
