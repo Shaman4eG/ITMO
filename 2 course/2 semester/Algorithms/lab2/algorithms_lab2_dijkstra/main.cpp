@@ -149,11 +149,14 @@ void ldgDijkstraDHeap(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<uns
 		{
 			unsigned int j = p->name;
 			unsigned int jq = index[j];
-			if (key[jq] > dist[i] + p->weight)
+			if (dist[i] != ULONG_MAX)
 			{
-				key[jq] = dist[i] + p->weight;
-				priorityQueue.emerge(index, jq, name, key, nq, constants::d);
-				up[j] = i;
+				if (key[jq] > dist[i] + p->weight)
+				{
+					key[jq] = dist[i] + p->weight;
+					priorityQueue.emerge(index, jq, name, key, nq, constants::d);
+					up[j] = i;
+				}
 			}
 			p = p->next;
 		}

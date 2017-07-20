@@ -6,6 +6,7 @@ void formGraph(bool *graphWasCreated, std::vector<ElementOfAdjacencyList*> &ADJ,
 {
 	srand(time(0));
 
+	ADJ.clear();
 	// After getting graph parameters we know necessary number of adjacency lists.
 	ADJ.resize(graphParameters->numberOfVertices + 1, NULL);
 
@@ -96,7 +97,9 @@ unsigned long generateAdjacentVertexName(ElementOfAdjacencyList *firstElementOfA
 unsigned long generateWeight(GraphParameters *graphParameters, int currentBaseVertex, 
 							 ElementOfAdjacencyList* adjacencyListToCheck)
 {
-	unsigned long weight = rand() + graphParameters->lowestPossibleWeight % graphParameters->highestPossibleWeight;
+	unsigned long weight = rand();
+	weight %= graphParameters->highestPossibleWeight;
+	weight += graphParameters->lowestPossibleWeight;
 
 	if (adjacencyListToCheck != NULL)
 	{

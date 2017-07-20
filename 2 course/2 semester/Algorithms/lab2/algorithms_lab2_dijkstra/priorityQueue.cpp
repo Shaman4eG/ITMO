@@ -104,6 +104,7 @@ void PriorityQueue::getMin(std::vector<unsigned int> &index, unsigned int *name1
 	name[*n] = *name1;
 	key[*n] = *key1;
 
+	index[*name1] = *n;
 	(*n)--;
 	if (*n > 1) immerse(index, 1, name, key, *n, d);
 }
