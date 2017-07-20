@@ -145,11 +145,13 @@
     <ClCompile Include="graphCreation.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="priorityQueue.cpp" />
+    <ClCompile Include="shortestPathFinding.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="graphCreation.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="priotityQueue.h" />
+    <ClInclude Include="shortestPathFinding.h" />
     <ClInclude Include="structuresAndConstants.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

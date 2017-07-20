@@ -24,6 +24,9 @@
     <ClCompile Include="priorityQueue.cpp">
       <Filter>Файлы исходного кода</Filter>
     </ClCompile>
+    <ClCompile Include="shortestPathFinding.cpp">
+      <Filter>Файлы исходного кода</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -36,6 +39,9 @@
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
     <ClInclude Include="structuresAndConstants.h">
+      <Filter>Заголовочные файлы</Filter>
+    </ClInclude>
+    <ClInclude Include="shortestPathFinding.h">
       <Filter>Заголовочные файлы</Filter>
     </ClInclude>
   </ItemGroup>

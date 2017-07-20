@@ -1,8 +1,9 @@
 #pragma once
 
-#include "priotityQueue.h"
 #include "structuresAndConstants.h"
+#include "priotityQueue.h"
 #include "graphCreation.h"
+#include "shortestPathFinding.h"
 
 #include <iostream>
 #include <vector>
@@ -20,8 +21,3 @@ void doChosenAction(MenuItems menuItem, bool *exit, bool *graphWasCreated, std::
 	GraphParameters *graphParameters, std::vector<unsigned long> &dist, std::vector<unsigned long> &up);
 
 GraphParameters getGraphParameters();
-
-void findingShortestPath(bool *graphWasCreated, std::vector<unsigned long> &dist, std::vector<unsigned long> &up,
-	std::vector<ElementOfAdjacencyList*> &ADJ, GraphParameters *graphParameters);
-void ldgDijkstraDHeap(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<unsigned long> &dist,
-	std::vector<unsigned long> &up, GraphParameters *graphParameters);

@@ -4,9 +4,6 @@
 
 namespace constants
 {
-	// Value of D-Heap. 
-	const int d = 2;
-
 	// Checks that user chose valid menu item.
 	const std::string menuRegex = "[1-3]";
 	const std::string numberWithLessThan8DigitsRegex = "^\d{1,7}$";
@@ -23,7 +20,7 @@ namespace constants
 enum MenuItems
 {
 	CREATE_GRAPH = 1,
-	FIND_SHORTEST_PATH,
+	FIND_SHORTEST_PATHS,
 	EXIT
 };
 
@@ -47,4 +44,7 @@ struct GraphParameters
 	unsigned int startingVertex = 1;
 
 	unsigned long longestPossibleDistance = numberOfVertices * (numberOfVertices - 1) * highestPossibleWeight;
+
+	// d of d-heap
+	int d = 2;
 };
