@@ -10,3 +10,5 @@ void fillCompleteRows(std::vector<ElementOfAdjacencyList*> &ADJ, int numberOfCom
 void fillLastRow(std::vector<ElementOfAdjacencyList*> &ADJ, int edgesInLastRow, GraphParameters *graphParameters);
 unsigned long generateAdjacentVertexName(ElementOfAdjacencyList *firstElementOfAdjacencyList, unsigned int numberOfVertices,
 	int baseVertex);
+unsigned long generateWeight(GraphParameters *graphParameters, int currentBaseVertex,
+	ElementOfAdjacencyList* adjacencyListToCheck);

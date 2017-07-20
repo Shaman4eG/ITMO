@@ -32,7 +32,7 @@ void fillCompleteRows(std::vector<ElementOfAdjacencyList*> &ADJ, int numberOfCom
 		{
 			ElementOfAdjacencyList *newElem = new ElementOfAdjacencyList();
 			newElem->name = generateAdjacentVertexName(ADJ[column], graphParameters->numberOfVertices, column);
-			newElem->weight = generateWeight();
+			newElem->weight = generateWeight(graphParameters, column, ADJ[newElem->name]);
 			newElem->next = ADJ[column];
 			ADJ[column] = newElem;
 		}
@@ -46,7 +46,7 @@ void fillLastRow(std::vector<ElementOfAdjacencyList*> &ADJ, int edgesInLastRow, 
 	{
 			ElementOfAdjacencyList *newElem = new ElementOfAdjacencyList();
 			newElem->name = generateAdjacentVertexName(ADJ[column], graphParameters->numberOfVertices, column);
-			newElem->weight = generateWeight(); 
+			newElem->weight = generateWeight(graphParameters, column, ADJ[newElem->name]); 
 			newElem->next = ADJ[column];
 			ADJ[column] = newElem;
 	}
@@ -92,10 +92,20 @@ unsigned long generateAdjacentVertexName(ElementOfAdjacencyList *firstElementOfA
 	}
 }
 
-unsigned long generateWeight(GraphParameters *graphParameters)
+// Generates weight. Checks if vertexes are mutualy connected and assignes same weight for them.
+unsigned long generateWeight(GraphParameters *graphParameters, int currentBaseVertex, 
+							 ElementOfAdjacencyList* adjacencyListToCheck)
 {
-	unsigned long weight = rand() % graphParameters->highestPossibleWeight;
-	if (weight < graphParameters->lowestPossibleWeight) weight = graphParameters->lowestPossibleWeight;
+	unsigned long weight = rand() + graphParameters->lowestPossibleWeight % graphParameters->highestPossibleWeight;
 
-	// TODO: ÏÐÎÂÅÐÊÀ, ×ÒÎ ÂÇÀÈÌÎÎÁÐÀÒÍÛÅ ÐÅÁÐÀ ÈÌÅÞÒ ÎÄÈÍÀÊÎÂÛÉ ÂÅÑ
+	if (adjacencyListToCheck != NULL)
+	{
+		do
+		{
+			if (adjacencyListToCheck->name == currentBaseVertex) return adjacencyListToCheck->weight;
+			adjacencyListToCheck = adjacencyListToCheck->next;
+		} while (adjacencyListToCheck != NULL);
+	}
+
+	return weight;
 }
