@@ -6,7 +6,8 @@ void formGraph(bool *graphWasCreated, std::vector<ElementOfAdjacencyList*> &ADJ,
 {
 	srand(time(0));
 
-	ADJ.clear();
+	clearAdjacencyLists(ADJ, graphParameters);
+
 	// After getting graph parameters we know necessary number of adjacency lists.
 	ADJ.resize(graphParameters->numberOfVertices + 1, NULL);
 
@@ -21,6 +22,35 @@ void formGraph(bool *graphWasCreated, std::vector<ElementOfAdjacencyList*> &ADJ,
 
 	// Flag that enables search of shortest path in graph function.
 	*graphWasCreated = true;
+}
+
+// Releases allocated memory.
+void clearAdjacencyLists(std::vector<ElementOfAdjacencyList*> &ADJ, GraphParameters *graphParameters)
+{
+	std::vector<ElementOfAdjacencyList*> adjacentVerticesOfVertexToDelete(graphParameters->numberOfVertices);
+	ElementOfAdjacencyList* elementToDelete = NULL;
+	for (int i = 1; i < ADJ.size(); i++)
+	{
+		elementToDelete = ADJ[i];
+		for (int j = 0; j < adjacentVerticesOfVertexToDelete.size(); j++)
+		{
+			if (elementToDelete != NULL)
+			{
+				adjacentVerticesOfVertexToDelete[j] = elementToDelete;
+				elementToDelete = elementToDelete->next;
+			}
+			else break;
+		}
+
+		for (int j = 0; j < adjacentVerticesOfVertexToDelete.size(); j++)
+		{
+			if (adjacentVerticesOfVertexToDelete[j] != NULL) delete adjacentVerticesOfVertexToDelete[j];
+			else break;
+		}
+		adjacentVerticesOfVertexToDelete.clear();
+		adjacentVerticesOfVertexToDelete.resize(graphParameters->numberOfVertices);
+	}
+	ADJ.clear();
 }
 
 // Filling data in adjacency vertices in complete rows.

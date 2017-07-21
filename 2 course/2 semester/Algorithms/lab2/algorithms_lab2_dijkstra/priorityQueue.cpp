@@ -1,14 +1,14 @@
 #include "priotityQueue.h"
 
 
-PriorityQueue::PriorityQueue( std::vector<unsigned int> &index, std::vector<unsigned int> &name, std::vector<unsigned long> &key, int n, int d)
+PriorityQueue::PriorityQueue( std::vector<unsigned int> &index, std::vector<unsigned int> &name, std::vector<unsigned long long> &key, int n, int d)
 {
 	for (int i = n; i > 0; i--) immerse(index, i, name, key, n, d);
 }
 
-void PriorityQueue::immerse(std::vector<unsigned int> &index, int i, std::vector<unsigned int> &name, std::vector<unsigned long> &key, int n, int d)
+void PriorityQueue::immerse(std::vector<unsigned int> &index, int i, std::vector<unsigned int> &name, std::vector<unsigned long long> &key, int n, int d)
 {
-	unsigned long key0 = key[i];
+	unsigned long long key0 = key[i];
 	unsigned int name0 = name[i];
 	int c = minChild(i, key, n, d);
 
@@ -26,9 +26,9 @@ void PriorityQueue::immerse(std::vector<unsigned int> &index, int i, std::vector
 	index[name[i]] = i;
 }
 
-void PriorityQueue::emerge(std::vector<unsigned int> &index, int i, std::vector<unsigned int> &name, std::vector<unsigned long> &key, int n, int d)
+void PriorityQueue::emerge(std::vector<unsigned int> &index, int i, std::vector<unsigned int> &name, std::vector<unsigned long long> &key, int n, int d)
 {
-	unsigned long key0 = key[i];
+	unsigned long long key0 = key[i];
 	unsigned int name0 = name[i];
 	int p = father(n, d, i);
 	
@@ -46,7 +46,7 @@ void PriorityQueue::emerge(std::vector<unsigned int> &index, int i, std::vector<
 	index[name[i]] = i;
 }
 
-int PriorityQueue::minChild(int i, std::vector<unsigned long> &key, int n, int d)
+int PriorityQueue::minChild(int i, std::vector<unsigned long long> &key, int n, int d)
 {
 	int kf = firstChild(n, d, i);
 	int minChild = 0;
@@ -92,8 +92,8 @@ int PriorityQueue::father(int n, int d, int i)
 
 
 
-void PriorityQueue::getMin(std::vector<unsigned int> &index, unsigned int *name1, unsigned long *key1, std::vector<unsigned int> &name,
-	std::vector<unsigned long> &key, int *n, int d)
+void PriorityQueue::getMin(std::vector<unsigned int> &index, unsigned int *name1, unsigned long long *key1, std::vector<unsigned int> &name,
+	std::vector<unsigned long long> &key, int *n, int d)
 {
 	*name1 = name[1];
 	*key1 = key[1];
