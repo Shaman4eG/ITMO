@@ -38,6 +38,8 @@ namespace constants
 	// Prevents overflows.
 	const unsigned int lowestWeightRestrictor = 0;
 	const unsigned int highestWeightRestrictor = 1000000;
+
+	const int numberOfTestsInExperiment = 100;
 }
 
 enum MenuItems

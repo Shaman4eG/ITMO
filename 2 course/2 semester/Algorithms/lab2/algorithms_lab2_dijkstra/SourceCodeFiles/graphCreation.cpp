@@ -1,4 +1,4 @@
-#include "graphCreation.h"
+#include "../Headers/graphCreation.h"
 
 // Using graph parameters creates graph. Returns created graph in ADJ parameter.
 // Edges are spread between all vertices as even as possible.

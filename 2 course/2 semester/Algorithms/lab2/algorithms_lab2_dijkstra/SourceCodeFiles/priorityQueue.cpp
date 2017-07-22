@@ -1,4 +1,4 @@
-#include "priotityQueue.h"
+#include "../Headers/priotityQueue.h"
 
 
 PriorityQueue::PriorityQueue( std::vector<unsigned int> &index, std::vector<unsigned int> &name, std::vector<unsigned long long> &key, int n, int d)

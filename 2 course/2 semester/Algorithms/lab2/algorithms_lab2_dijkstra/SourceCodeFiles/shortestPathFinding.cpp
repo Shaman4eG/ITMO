@@ -1,4 +1,4 @@
-#include "shortestPathFinding.h"
+#include "../Headers/shortestPathFinding.h"
 
 // Finds shortest path in graph using Dijkstra's algorithm with d-heap priority queue.
 void ldgDijkstraDHeap(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<unsigned long long> &dist,

@@ -1,6 +1,4 @@
-#include "main.h"
-
-// TODO: Tasks 2-4
+#include "../Headers/main.h"
 
 int main()
 {
@@ -66,7 +64,7 @@ void doChosenAction(MenuItems menuItem, bool *exit, bool *graphWasCreated, std::
 		break;
 
 	case EXPERIMENT_WITH_CHANGING_NUMBER_OF_EDGES:
-		experimentWithChangingNumberOfEdges(ADJ, dist, up);
+		experimentWithChangingNumberOfEdges(ADJ, dist, up, graphWasCreated);
 		break;
 
 	case EXIT:
@@ -79,13 +77,12 @@ void doChosenAction(MenuItems menuItem, bool *exit, bool *graphWasCreated, std::
 GraphParameters getGraphParameters()
 {
 	GraphParameters graphParameters;
-	graphParameters.numberOfVertices = 10'001;
-	graphParameters.numberOfEdges = 1'000'000;
-	graphParameters.lowestPossibleWeight = 1;
-	graphParameters.highestPossibleWeight = 1'000'000;
-	graphParameters.d = 4;
+	//graphParameters.numberOfVertices = 10'001;
+	//graphParameters.numberOfEdges = 1'000'000;
+	//graphParameters.lowestPossibleWeight = 1;
+	//graphParameters.highestPossibleWeight = 1'000'000;
+	//graphParameters.d = 4;
 
-	/*
 	std::string graphParameterInput = "";
 	// Input number of vertices and edges.
 	bool validInput = false;
@@ -124,7 +121,6 @@ GraphParameters getGraphParameters()
 	// Input d of d-heap.
 	graphParameterInput = checkInputValidness(constants::dOfDHeapPhrase, constants::dOfDHeapRegex);
 	graphParameters.d = std::stoi(graphParameterInput);
-	*/
 
 	return graphParameters;
 }
@@ -166,7 +162,7 @@ bool checkOfMutualVerticesAndEdgesAppropriateness(GraphParameters *graphParamete
 	else return true;
 }
 
-// Comparing two algorithms, savng their timings.
+// Comparing two algorithms, saving their timings.
 void algorithmsComparison(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<unsigned long long> &dist,
 	std::vector<unsigned long> &up, GraphParameters *graphParameters, Timings *timings)
 {
@@ -193,18 +189,68 @@ void algorithmsComparison(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector
 // 100 runs through graph with different number of edges.
 // Saves data into excel file.
 void experimentWithChangingNumberOfEdges(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<unsigned long long> &dist,
-	std::vector<unsigned long> &up)
+	std::vector<unsigned long> &up, bool *graphWasCreated)
 {
+	// Assigning graph parameters and forming graph.
 	GraphParameters graphParameters;
 	graphParameters.numberOfVertices = 10'001;
 	graphParameters.numberOfEdges = 1'000'000;
 	graphParameters.lowestPossibleWeight = 1;
 	graphParameters.highestPossibleWeight = 1'000'000;
 	graphParameters.d = 4;
+	
+	// Preparing file for results.
+	std::ofstream timingsExcelFile;
+	timingsExcelFile.open("timings.csv");
 
-	// TODO: SEND RESULTS TO EXCEL FILE
-	for (long m = 100'000; m <= 10'000'000; m += 100'000)
+	if (!timingsExcelFile)
 	{
-		ldgDijkstraDHeap(ADJ, dist, up, &graphParameters);
+		std::cerr << "Unable to open file." << std::endl;
+		return;
+	}
+
+	// Running algorithms.
+	std::vector<double> timingsOfA(constants::numberOfTestsInExperiment);
+	std::vector<double> timingsOfB(constants::numberOfTestsInExperiment);
+	std::vector<long> numberOfEdges(constants::numberOfTestsInExperiment);
+	doExperiment(ADJ, dist, up, timingsOfA, timingsOfB, numberOfEdges, &graphParameters, graphWasCreated);
+
+
+	// Putting results in file.
+	// ';' is a delimeter to put data in next cell.
+	for (int i = 0; i < timingsOfA.size(); i++)
+	{
+		timingsExcelFile << numberOfEdges[i] << ";";
+		timingsExcelFile << timingsOfA[i] << ";";
+		timingsExcelFile << timingsOfB[i] << std::endl;
+	}
+}
+
+// Running Dijkstra's algorithm.
+void doExperiment(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<unsigned long long> &dist,
+	std::vector<unsigned long> &up, std::vector<double> &timingsOfA, std::vector<double> &timingsOfB, 
+	std::vector<long> &numberOfEdges, GraphParameters *graphParameters, bool *graphWasCreated)
+{
+	clock_t start;
+	clock_t stop;
+	int indexOfNextFreeSlot = 0;
+	for (long m = 100'000; m <= 10'000'000; m += 100'000) 
+	{
+		graphParameters->numberOfEdges = m;
+		formGraph(graphWasCreated, ADJ, graphParameters);
+
+		// Algorithm A.
+		start = clock();
+		ldgDijkstraDHeap(ADJ, dist, up, graphParameters);
+		stop = clock();
+		timingsOfA[indexOfNextFreeSlot] = ((double)(stop - start) / CLK_TCK);
+
+		// Algorithm B
+		start = clock();
+		ldgDijkstraDHeap(ADJ, dist, up, graphParameters);
+		stop = clock();
+		timingsOfB[indexOfNextFreeSlot] = ((double)(stop - start) / CLK_TCK);
+
+		numberOfEdges[indexOfNextFreeSlot++] = m;
 	}
 }

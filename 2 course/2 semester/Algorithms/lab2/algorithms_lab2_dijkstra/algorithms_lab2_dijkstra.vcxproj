@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Headers\graphCreation.h" />
+    <ClInclude Include="Headers\main.h" />
+    <ClInclude Include="Headers\priotityQueue.h" />
+    <ClInclude Include="Headers\shortestPathFinding.h" />
+    <ClInclude Include="Headers\structuresAndConstants.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="SourceCodeFiles\graphCreation.cpp" />
+    <ClCompile Include="SourceCodeFiles\main.cpp" />
+    <ClCompile Include="SourceCodeFiles\priorityQueue.cpp" />
+    <ClCompile Include="SourceCodeFiles\shortestPathFinding.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CF8C7B63-F5CE-4956-A8D7-0A1F6825FAB5}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
@@ -141,19 +154,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="graphCreation.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="priorityQueue.cpp" />
-    <ClCompile Include="shortestPathFinding.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="graphCreation.h" />
-    <ClInclude Include="main.h" />
-    <ClInclude Include="priotityQueue.h" />
-    <ClInclude Include="shortestPathFinding.h" />
-    <ClInclude Include="structuresAndConstants.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
