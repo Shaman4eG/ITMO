@@ -57,11 +57,17 @@ void fillAdjacencyLists(std::vector<ElementOfAdjacencyList*> &ADJ, int numberOfC
 {
 	int totalNumberOfElementsInColumn = numberOfCompleteRows + 1;
 	int numberOfEdgesLeft = graphParameters->numberOfEdges;
+	// Prevents multiple decrease of totalNumberOfElementsInColumn, because it is supposed to become lower by just 1.
+	bool isDecreased = false;
 
 	for (int column = 1; column <= graphParameters->numberOfVertices; column++) 
 	{
 		// All subsequent columns have 1 less element in adjacency list.
-		if (column > lastColumnWithExtraElement) totalNumberOfElementsInColumn--;
+		if ((!isDecreased) && (column > lastColumnWithExtraElement))
+		{
+			totalNumberOfElementsInColumn--;
+			isDecreased = true;
+		}
 
 		for (int row = 0; row < totalNumberOfElementsInColumn; row++)
 		{
@@ -145,7 +151,6 @@ unsigned long generateAdjacentVertexName(ElementOfAdjacencyList *firstElementOfA
 	}
 }
 
-// Generates weight. Checks if vertexes are mutualy connected and assignes same weight for them.
 unsigned long generateWeight(GraphParameters *graphParameters, int currentBaseVertex, 
 							 ElementOfAdjacencyList* adjacencyListToCheck)
 {

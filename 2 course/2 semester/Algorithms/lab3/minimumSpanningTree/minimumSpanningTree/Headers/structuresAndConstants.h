@@ -6,7 +6,7 @@
 namespace constants
 {
 	// Checks user's input validness.
-	const std::regex menuRegex("[1-2]");
+	const std::regex menuRegex("[1-3]");
 	// [2; 10'001]
 	const std::regex numberOfVerticesRegex("^[2-9]{1}$|^[1-9]{1}[0-9]{1,3}$|^1000[0-1]{1}$"); 	
 	// [1; 10'000'000]
@@ -15,10 +15,8 @@ namespace constants
 	const std::regex heighestAndLowestPossibleWeightRegex("^[1-9]{1}[0-9]{0,5}$|^1000000$");
 
 	// Dialogs with user.
-	// Errors
-	const std::string graphNotCreatedError = "Graph was not created.";
 	// What to input phrases
-	const std::string menuPhrase = "1. Create graph\n2. Exit\n\n";
+	const std::string menuPhrase = "1. Create graph\n2. Find MST\n3. Exit\n\n";
 	const std::string numberOfVerticesPhrase = "Number of vertices [2; 10'001]: ";
 	const std::string numberOfEdgesPhrase = "Number of edges [1; 10'000'000]: ";
 	const std::string heighestPossibleWeightPhrase = "Heighest possible weight of graph's edge [1; 1'000'000]: ";
@@ -36,27 +34,34 @@ namespace constants
 enum MenuItems
 {
 	CREATE_GRAPH = 1,
+	FIND_MST,
 	EXIT
 };
 
 struct ElementOfAdjacencyList
 {
-	unsigned int name;
-	unsigned int weight;
+	int name;
+	int weight;
 	ElementOfAdjacencyList *next;
+};
+
+struct Edges
+{
+	int firstVertex = 0;
+	int secondVertex = 0;
 };
 
 
 // User-specified parameters of graph.
 struct GraphParameters
 {
-	unsigned int numberOfVertices = 0;
-	unsigned long numberOfEdges = 0;
+	int numberOfVertices = 0;
+	long numberOfEdges = 0;
 
-	unsigned int lowestPossibleWeight = constants::standardLowestWeight;
-	unsigned int highestPossibleWeight = constants::standardHighestWeight;
+	int lowestPossibleWeight = constants::standardLowestWeight;
+	int highestPossibleWeight = constants::standardHighestWeight;
 	
-	unsigned int startingVertex = 1;
+	int startingVertex = 1;
 };
 
 struct Timings
