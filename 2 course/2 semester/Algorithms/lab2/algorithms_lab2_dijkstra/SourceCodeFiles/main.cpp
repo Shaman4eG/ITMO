@@ -234,6 +234,7 @@ void doExperiment(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<unsigne
 	clock_t start;
 	clock_t stop;
 	int indexOfNextFreeSlot = 0;
+	// TODO: FIX BORUVKA
 	for (long m = 100'000; m <= 10'000'000; m += 100'000) 
 	{
 		graphParameters->numberOfEdges = m;

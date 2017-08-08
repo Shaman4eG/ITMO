@@ -2,31 +2,25 @@
 
 #include "structuresAndConstants.h"
 #include "graphCreation.h"
+#include "findingMST.h"
 
 #include <iostream>
 #include <limits>
 #include <algorithm>
+#include <fstream>  
 
 MenuItems getMenuItem();
 std::string checkInputValidness(std::string whatToInputPhrase, std::regex regex);
 void doChosenAction(MenuItems menuItem, bool *exit, bool *graphWasCreated, std::vector<ElementOfAdjacencyList*> &ADJ,
 	GraphParameters *graphParameters, std::vector<Edges> &MST);
 
+bool experiment(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<Edges> &MST, bool *graphWasCreated);
+void doExperiment(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<Edges> &MST, std::vector<double> &timingsOfA,
+	std::vector<double> &timingsOfB, GraphParameters *graphParameters, bool *graphWasCreated, Timings *timings,
+	std::vector<long> &numberOfEdges);
+
 GraphParameters getGraphParameters();
 std::string checkInputValidness(std::string whatToInputPhrase, std::regex regex);
 bool checkOfMutualVerticesAndEdgesAppropriateness(GraphParameters *graphParameters);
 
-void findMST(std::vector<ElementOfAdjacencyList*> &ADJ, GraphParameters *graphParameters, std::vector<Edges> &MST);
 
-int findLowestWeightElementInComponent(std::vector<std::vector<int> > &listsOfComponents, std::vector<ElementOfAdjacencyList*> &ADJ,
-	int component, bool *firstSearch, std::vector<std::vector<Edges> > &edgesSubsets);
-
-void findListHeaderAsNewElement(std::vector<std::vector<int> > &listsOfComponents, int workingComponent,
-	std::vector<std::vector<Edges> > &edgesSubsets, int *numberOfComponents);
-void findNewAndAddedElementsFromOtherComponents(std::vector<std::vector<int> > &listsOfComponents, int workingComponent,
-	std::vector<std::vector<Edges> > &edgesSubsets, int workingElementIndex, int *numberOfComponents);
-
-void addElementFromAnotherComponent(std::vector<std::vector<int> > &listsOfComponents, int nextComponent,
-	int workingComponent, std::vector<std::vector<Edges> > &edgesSubsets);
-
-void cleaningRedundantEdgeOfMST(std::vector<std::vector<Edges> > &edgesSubsets, int columnWithMST, std::vector<Edges> &MST);

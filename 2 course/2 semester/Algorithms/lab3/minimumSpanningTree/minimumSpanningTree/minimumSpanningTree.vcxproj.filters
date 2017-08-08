@@ -24,12 +24,18 @@
     <ClInclude Include="Headers\structuresAndConstants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\findingMST.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SourceCode\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SourceCode\graphCreation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\findingMST.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

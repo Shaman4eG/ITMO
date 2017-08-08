@@ -6,7 +6,7 @@
 namespace constants
 {
 	// Checks user's input validness.
-	const std::regex menuRegex("[1-3]");
+	const std::regex menuRegex("[1-4]");
 	// [2; 10'001]
 	const std::regex numberOfVerticesRegex("^[2-9]{1}$|^[1-9]{1}[0-9]{1,3}$|^1000[0-1]{1}$"); 	
 	// [1; 10'000'000]
@@ -16,7 +16,7 @@ namespace constants
 
 	// Dialogs with user.
 	// What to input phrases
-	const std::string menuPhrase = "1. Create graph\n2. Find MST\n3. Exit\n\n";
+	const std::string menuPhrase = "1. Create graph\n2. Find MST\n3. Experiment\n4. Exit\n\n";
 	const std::string numberOfVerticesPhrase = "Number of vertices [2; 10'001]: ";
 	const std::string numberOfEdgesPhrase = "Number of edges [1; 10'000'000]: ";
 	const std::string heighestPossibleWeightPhrase = "Heighest possible weight of graph's edge [1; 1'000'000]: ";
@@ -35,6 +35,7 @@ enum MenuItems
 {
 	CREATE_GRAPH = 1,
 	FIND_MST,
+	EXPERIMENT_WITH_CHANGING_NUMBER_OF_EDGES,
 	EXIT
 };
 
@@ -49,6 +50,7 @@ struct Edges
 {
 	int firstVertex = 0;
 	int secondVertex = 0;
+	int weight = 0;
 };
 
 

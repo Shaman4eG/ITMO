@@ -19,11 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Headers\findingMST.h" />
     <ClInclude Include="Headers\graphCreation.h" />
     <ClInclude Include="Headers\main.h" />
     <ClInclude Include="Headers\structuresAndConstants.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SourceCode\findingMST.cpp" />
     <ClCompile Include="SourceCode\graphCreation.cpp" />
     <ClCompile Include="SourceCode\main.cpp" />
   </ItemGroup>
