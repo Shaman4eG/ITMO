@@ -53,7 +53,7 @@ void boruvka(std::vector<ElementOfAdjacencyList*> &ADJ, GraphParameters *graphPa
 
 
 		// Finds same elements in different lists and puts them into one, keeping one subtree and marking as irrelevant another.
-		for (int component = 1; component < listsOfComponents.size(); component++)
+ 		for (int component = 1; component < listsOfComponents.size(); component++)
 		{
 			if (numberOfComponents < 2) break;
 			if (listsOfComponents[component][0] == -1) continue;
@@ -165,7 +165,6 @@ void findListHeaderAsNewElement(std::vector<std::vector<int> > &listsOfComponent
 			// Marking subtree as unexisting anymore.
 			listsOfComponents[nextComponent][0] = -1;
 			(*numberOfComponents)--;
-
 		}
 	}
 }
@@ -309,7 +308,7 @@ void formingMST(std::priority_queue <Edges, std::vector<Edges>, myComparator > s
 
 	// Adding edges to MST and removing those, which make cycles.
 	// Number of edges of MST must be one less than the number of vertices.
-	for (int i = 0; i < graphParameters->numberOfVertices - 1; i++)
+	for (int i = 0; i < graphParameters->numberOfVertices; i++)
 	{
 		// Taking minimum edge.
 		Edges currentEdge = sortedEdges.top();

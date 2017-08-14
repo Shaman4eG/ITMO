@@ -2,22 +2,26 @@
 
 // Using graph parameters creates graph. Returns created graph in ADJ parameter.
 // Edges are spread between all vertices as even as possible.
-void formGraph(bool *graphWasCreated, std::vector<ElementOfAdjacencyList*> &ADJ, GraphParameters *graphParameters)
+void formGraph(bool *graphWasCreated, std::vector<ElementOfAdjacencyList*> &ADJ, GraphParameters *graphParameters,
+	std::vector<Edges> &MST)
 {
 	srand(time(0));
 
 	clearAdjacencyLists(ADJ, graphParameters);
+	MST.clear();
 
 	// After getting graph parameters we know necessary number of adjacency lists.
 	ADJ.resize(graphParameters->numberOfVertices + 1, NULL);
 
-	// Considering each vertices' number of edges difference is less than 2 edges from other vertices, 
+	// Considering each vertices' number of edges difference is less than2 2 edges from other vertices, 
 	// we can calculate number of complete rows.
 	int numberOfCompleteRows = floor((double)graphParameters->numberOfEdges / graphParameters->numberOfVertices);
 	// To find last column with extra element we substract number of edges in complete rows from all edges. 
 	int lastColumnWithExtraElement = graphParameters->numberOfEdges - numberOfCompleteRows * graphParameters->numberOfVertices;
+	int numberOfEdgesLeft = graphParameters->numberOfEdges;
 
-	fillAdjacencyLists(ADJ, numberOfCompleteRows, graphParameters, lastColumnWithExtraElement);
+	firstRowSpecialFilling(ADJ, graphParameters, &numberOfEdgesLeft);
+	fillAdjacencyLists(ADJ, numberOfCompleteRows, graphParameters, lastColumnWithExtraElement, numberOfEdgesLeft);
 
 	// Flag that enables search of shortest path in graph function.
 	*graphWasCreated = true;
@@ -53,10 +57,9 @@ void clearAdjacencyLists(std::vector<ElementOfAdjacencyList*> &ADJ, GraphParamet
 }
 
 void fillAdjacencyLists(std::vector<ElementOfAdjacencyList*> &ADJ, int numberOfCompleteRows, GraphParameters *graphParameters,
-	int lastColumnWithExtraElement)
+	int lastColumnWithExtraElement, int numberOfEdgesLeft)
 {
 	int totalNumberOfElementsInColumn = numberOfCompleteRows + 1;
-	int numberOfEdgesLeft = graphParameters->numberOfEdges;
 	// Prevents multiple decrease of totalNumberOfElementsInColumn, because it is supposed to become lower by just 1.
 	bool isDecreased = false;
 
@@ -77,6 +80,29 @@ void fillAdjacencyLists(std::vector<ElementOfAdjacencyList*> &ADJ, int numberOfC
 	}
 }
 
+// Prevents isolated graph elements. 
+void firstRowSpecialFilling(std::vector<ElementOfAdjacencyList*> &ADJ, GraphParameters *graphParameters, int *numberOfEdgesLeft)
+{
+	ElementOfAdjacencyList *newElem = new ElementOfAdjacencyList();
+	newElem->name = 1;
+	newElem->weight = generateWeight(graphParameters);
+	newElem->next = NULL;
+	ADJ[ADJ.size() - 1] = newElem;
+	addReflectionElement(ADJ, newElem->name, graphParameters, newElem, ADJ.size() - 1);
+	(*numberOfEdgesLeft)--;
+
+	for (int i = 1; i < ADJ.size() - 1; i++)
+	{
+		newElem = new ElementOfAdjacencyList();
+		newElem->name = i + 1;
+		newElem->weight = generateWeight(graphParameters);
+		newElem->next = ADJ[i];
+		ADJ[i] = newElem;
+		addReflectionElement(ADJ, newElem->name, graphParameters, newElem, i);
+		(*numberOfEdgesLeft)--;
+	}
+}
+
 // Adds new element to adjacency list.
 void addNewElement(std::vector<ElementOfAdjacencyList*> &ADJ, int column, GraphParameters *graphParameters)
 {
@@ -89,7 +115,7 @@ void addNewElement(std::vector<ElementOfAdjacencyList*> &ADJ, int column, GraphP
 		return;
 	}
 
-	newElem->weight = generateWeight(graphParameters, column, ADJ[newElem->name]);
+	newElem->weight = generateWeight(graphParameters);
 	newElem->next = ADJ[column];
 	ADJ[column] = newElem;
 	// second paramter - column = newElemn->name because name of adjacent vertex and its column are equal.
@@ -151,8 +177,7 @@ unsigned long generateAdjacentVertexName(ElementOfAdjacencyList *firstElementOfA
 	}
 }
 
-unsigned long generateWeight(GraphParameters *graphParameters, int currentBaseVertex, 
-							 ElementOfAdjacencyList* adjacencyListToCheck)
+unsigned long generateWeight(GraphParameters *graphParameters)
 {
 	unsigned long weight = rand();
 	weight %= graphParameters->highestPossibleWeight;

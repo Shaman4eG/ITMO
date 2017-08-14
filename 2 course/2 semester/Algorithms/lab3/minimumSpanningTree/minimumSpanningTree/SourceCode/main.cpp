@@ -41,7 +41,7 @@ void doChosenAction(MenuItems menuItem, bool *exit, bool *graphWasCreated, std::
 	{
 	case CREATE_GRAPH:
 		*graphParameters = getGraphParameters();
-		formGraph(graphWasCreated, ADJ, graphParameters);
+		formGraph(graphWasCreated, ADJ, graphParameters, MST);
 		std::cout << "Graph successfully created!" << std::endl;
 		break;
 
@@ -79,9 +79,9 @@ bool experiment(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<Edges> &M
 {
 	// Assigning graph parameters and forming graph.
 	GraphParameters graphParameters;
-	graphParameters.numberOfVertices = 11;//10'001;
+	graphParameters.numberOfVertices = 10'000;
 	graphParameters.lowestPossibleWeight = 1;
-	graphParameters.highestPossibleWeight = 10;// 1'000'000;
+	graphParameters.highestPossibleWeight = 1'000'000;
 
 	// Preparing file for results.
 	std::ofstream timingsExcelFile;
@@ -120,10 +120,10 @@ void doExperiment(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<Edges> 
 	std::vector<long> &numberOfEdges)
 {
 	int indexOfNextFreeSlot = 0;
-	for (long m = 100'000; m <= 10'000'000; m += 100'000)
+	for (long m = 10'000; m <= 1'000'000; m += 10'000)
 	{
 		graphParameters->numberOfEdges = m;
-		formGraph(graphWasCreated, ADJ, graphParameters);
+		formGraph(graphWasCreated, ADJ, graphParameters, MST);
 
 		findMST(ADJ, graphParameters, MST, timings);
 		timingsOfA[indexOfNextFreeSlot] = timings->timingOfAlgorithmA;
@@ -136,12 +136,11 @@ void doExperiment(std::vector<ElementOfAdjacencyList*> &ADJ, std::vector<Edges> 
 GraphParameters getGraphParameters()
 {
 	GraphParameters graphParameters;
-	graphParameters.numberOfVertices = 7;
-	graphParameters.numberOfEdges = 12;
-	graphParameters.lowestPossibleWeight = 1;
-	graphParameters.highestPossibleWeight = 10;
+	//graphParameters.numberOfVertices = 10;
+	//graphParameters.numberOfEdges = 20;
+	//graphParameters.lowestPossibleWeight = 1;
+	//graphParameters.highestPossibleWeight = 10;
 
-	/*
 	std::string graphParameterInput = "";
 	// Input number of vertices and edges.
 	bool validInput = false;
@@ -176,7 +175,7 @@ GraphParameters getGraphParameters()
 		}
 		else validInput = true;
 	}
-	*/
+	
 
 	return graphParameters;
 }
