@@ -27,6 +27,9 @@
     <ClInclude Include="Headers\findMaxFlow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Headers\findMinCut.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SourceCode\main.cpp">
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="SourceCode\findMaxFlow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SourceCode\findMinCut.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

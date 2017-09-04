@@ -25,7 +25,7 @@ int findMaxFlow(GraphParameters *graphParameters, std::vector <std::vector <Edge
 		ElementOfPath emptyEdge;
 		ElementOfPath firstEdge;
 		firstEdge.thisVertex = A;
-		DFS(firstEdge, emptyEdge, listsOfEdges, visitations, prior, &pathFound);
+		DFS(firstEdge, emptyEdge, listsOfEdges, visitations, prior, &pathFound, 0);
 		if (!pathFound) return maxFlow;
 
 		// Keeps current enlargeable path, which is used to increase the flow.
@@ -34,7 +34,7 @@ int findMaxFlow(GraphParameters *graphParameters, std::vector <std::vector <Edge
 
 		// Keeps pointers to edges in listsOfEdges, so we can increase and decrease flow in them directly.
 		std::vector<Edge *> edgesInPath;
-		// TODO: онв лхм ткнс = 0. онв пеапн е напюрмн хлеер мскебни ткнс
+
 		int minFlow = findMinFlow(listsOfEdges, path, edgesInPath);
 
 		std::vector<VertexName> wasInPath;
@@ -65,7 +65,7 @@ int findMaxFlow(GraphParameters *graphParameters, std::vector <std::vector <Edge
 // If enlargeable path is found returns true, 
 // else returns false and algorithm is terminated.
 void DFS(ElementOfPath currentVertex, ElementOfPath previousVertex, std::vector <std::vector <Edge> > &listsOfEdges,
-	std::vector <Visitation> &visitations, std::vector <ElementOfPath> &prior, bool *pathFound)
+	std::vector <Visitation> &visitations, std::vector <ElementOfPath> &prior, bool *pathFound, int forMinCutVersion)
 {
 	if (visitations[currentVertex.thisVertex] == VISITED) return;
 
@@ -95,18 +95,18 @@ void DFS(ElementOfPath currentVertex, ElementOfPath previousVertex, std::vector 
 				ElementOfPath nextElement;
 				nextElement.capacity = listsOfEdges[currentVertex.thisVertex][i].capacity;
 				nextElement.thisVertex = listsOfEdges[currentVertex.thisVertex][i].vertex;
-				DFS(nextElement, currentVertex, listsOfEdges, visitations, prior, pathFound);
+				DFS(nextElement, currentVertex, listsOfEdges, visitations, prior, pathFound, forMinCutVersion);
 			}
 		}
-		else if (currentEdge.capacity - currentEdge.flow > 0)
+		else if (currentEdge.capacity - currentEdge.flow + forMinCutVersion > 0)
 		{
 			ElementOfPath nextElement;
 			nextElement.capacity = listsOfEdges[currentVertex.thisVertex][i].capacity;
 			nextElement.thisVertex = listsOfEdges[currentVertex.thisVertex][i].vertex;
-			DFS(nextElement, currentVertex, listsOfEdges, visitations, prior, pathFound);
+			DFS(nextElement, currentVertex, listsOfEdges, visitations, prior, pathFound, forMinCutVersion);
 		}
 
-		// Used for fast interaption of all higher level function calls after path was found.
+		// Used for fast interruption of all higher level function calls after path was found.
 		if (*pathFound) return;
 	}
 }

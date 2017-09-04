@@ -64,7 +64,7 @@ void doChosenAction(MenuItems menuItem, bool *graphCreated, bool *exit, GraphPar
 		break;
 
 	case FIND_MAX_FLOW:
-		findMaxFlowPreparation(graphCreated, graphParameters, listsOfEdges);
+		findMaxFlowAndMinCutPreparation(graphCreated, graphParameters, listsOfEdges);
 		break;
 
 	case EXIT:
@@ -73,13 +73,33 @@ void doChosenAction(MenuItems menuItem, bool *graphCreated, bool *exit, GraphPar
 	}
 }
 
-void findMaxFlowPreparation(bool *graphCreated, GraphParameters *graphParameters, std::vector <std::vector <Edge> > &listsOfEdges)
+void findMaxFlowAndMinCutPreparation(bool *graphCreated, GraphParameters *graphParameters, std::vector <std::vector <Edge> > &listsOfEdges)
 {
 	if (*graphCreated)
 	{
 		int maxFlow = findMaxFlow(graphParameters, listsOfEdges);
-		std::cout << "Max flow = " << maxFlow << std::endl;
+		std::vector<ElementOfPath> combination;
+		findMinCut(graphParameters, listsOfEdges, maxFlow, combination);
+		std::cout << "\nMax flow = " << maxFlow << std::endl;
+		std::cout << "Min cut:" << std::endl;
+		for (int i = 0; i < combination.size(); i++)
+		{
+			std::cout << "\t" << convertVertexName(combination[i].from) << " --(" << combination[i].capacity << 
+			")--> " << convertVertexName(combination[i].thisVertex) << std::endl;
+		}
 	}
 	else std::cout << "Graph was not created." << std::endl;
 }
 
+char convertVertexName(VertexName currentVertex)
+{
+	switch (currentVertex)
+	{
+		case A: return 'A'; break;
+		case B: return 'B'; break;
+		case C: return 'C'; break;
+		case D: return 'D'; break;
+		case E: return 'E'; break;
+		case F: return 'F'; break;
+	}
+}
