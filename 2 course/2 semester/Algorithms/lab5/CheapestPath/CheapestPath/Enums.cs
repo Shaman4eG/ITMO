@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace CheapestPath
 {
-    enum RoadType
+    internal enum RoadType
     {
+        Invalid = -1,
         Highway,
         Railway
     };

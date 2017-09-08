@@ -24,7 +24,7 @@ namespace CheapestPath
         /// </summary>
         internal int From
         {
-            get { return From; }
+            get { return from; }
             set
             {
                 if ((value >= Constants.minCityNumber) ||
@@ -32,11 +32,12 @@ namespace CheapestPath
                 {
                     if (value != To)
                     {
-                        From = value;
+                        from = value;
                     }
                 }
             }
         }
+        private int from = 0;
 
         /// <summary>
         /// City, to which road is coming in.
@@ -46,7 +47,7 @@ namespace CheapestPath
         /// </summary>
         internal int To
         {
-            get { return To; }
+            get { return to; }
             set
             {
                 if ((value >= Constants.minCityNumber) ||
@@ -54,11 +55,12 @@ namespace CheapestPath
                 {
                     if (value != From)
                     {
-                        To = value;
+                        to = value;
                     }
                 }
             }
         }
+        private int to = 0;
 
         /// <summary>
         /// Effects cost of travelling through road.
@@ -67,33 +69,35 @@ namespace CheapestPath
         /// </summary>
         internal RoadType RoadType
         {
-            get { return RoadType; }
+            get { return roadType; }
             set
             {
                 if ((value == RoadType.Highway) ||
                     (value == RoadType.Railway))
                 {
-                    RoadType = value;
+                    roadType = value;
                 }
             }
         }
+        private RoadType roadType = RoadType.Invalid;
 
         /// <summary>
         /// Depends on road type.
         /// Sets only if:
-        /// 1) cost is withing preset range.
+        /// 1) cost is withing predefined range.
         /// </summary>
         internal float CostOfTravel
         {
-            get { return CostOfTravel; }
+            get { return costOfTravel; }
             set
             {
                 if ((value > Constants.minCost) &&
                     (value <= Constants.maxCost))
                 {
-                    CostOfTravel = value;
+                    costOfTravel = value;
                 }
             }
         }
+        private float costOfTravel = 0;
     }
 }

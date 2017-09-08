@@ -14,10 +14,6 @@ namespace CheapestPath
         internal const int maxNumberOfRoads = 1000;
         // SECTION END
 
-        // SECTION START: regexes for input checking.
-        Regex numberOfCitiesRegex = new Regex(@"^[2-9]$|^[1-9](\d)$|^100$");
-        // SECTION END
-
         internal const int minCityNumber = 1;
         internal const int maxCityNumber = 100;
 
