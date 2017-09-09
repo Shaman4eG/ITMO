@@ -11,12 +11,6 @@ namespace CheapestPath
     class Input
     {
         /// <summary>
-        /// Calculated based on number of cities. 
-        /// Minimum number of roads = number of cities - 1
-        /// </summary>
-        internal int MinNumberOfRoads { get; private set; }
-
-        /// <summary>
         /// User-set number of cities.
         /// </summary>
         internal int NumberOfCities
@@ -41,7 +35,7 @@ namespace CheapestPath
             get { return numberOfRoads; }
             set
             {
-                if ((value >= MinNumberOfRoads) &&
+                if ((value >= Constants.minNumberOfRoads) &&
                     (value <= Constants.maxNumberOfRoads))
                 {
                     numberOfRoads = value;
@@ -99,11 +93,16 @@ namespace CheapestPath
         /// <summary>
         /// Keeps roads (edges) of transport system.
         /// </summary>
-        private List<Road> roads = new List<Road>();
+        private List<List<Road>> roads = new List<List<Road>>();
 
-        public ReadOnlyCollection<Road> ReadOnlyRoads
+        internal ReadOnlyCollection<List<Road>> ReadOnlyRoads
         {
             get { return roads.AsReadOnly(); }
+        }
+
+        public Input()
+        {
+
         }
 
 
@@ -113,12 +112,77 @@ namespace CheapestPath
         /// Magic numbers in indices are set according to how lines should be inputed in task.
         /// </summary>
         /// <param name="fileName"> File with input data. </param>
-        internal void GetData(string fileName)
+        internal void GetData()
         {
-            string[] inputData = File.ReadAllLines(fileName);
+            // CHANGE
+            string fileName = "TOUR.IN.txt";// = GetFileName();
+            string[] inputData;
+            if (!ReadFromFile(fileName, out inputData)) return;
 
-            if (TryParseNumberOfCities(inputData[0], out numberOfCities)) return;
-            if (TryParseNumberOfRoads(inputData[1], out numberOfRoads)) return;
+            if (!CheckExistenceOfFirstTwoInputedLines(inputData)) return;
+
+            if (!TryParseNumberOfCities(inputData[0], out numberOfCities)) return;
+            if (!TryParseNumberOfRoads(inputData[1], out numberOfRoads)) return;
+
+            if (!CheckNumberOfLeftLines(inputData)) return;
+
+            if (!GetRoadsInfo(inputData)) return;
+
+            string[] startAndFinishCity = inputData[inputData.Length - 1].Split(' ');
+            if (!TryParseStartCity(startAndFinishCity[0], out startCity)) return;
+            if (!TryParseFinishCity(startAndFinishCity[1], out finishCity)) return;
+            if (!AreStartAndFinishCitiesDifferent(startCity, finishCity)) return;
+        }
+
+        /// <summary>
+        /// Gets user-set file name through console.
+        /// </summary>
+        /// <returns> File name </returns>
+        private string GetFileName()
+        {
+            Console.Write("Input file name: ");
+            return Console.ReadLine();
+        }
+
+        /// <summary>
+        /// Tries extracting data from input file.
+        /// </summary>
+        /// <param name="fileName"> Input file. </param>
+        /// <param name="inputData"> Will take input data, if success, and null, if error. </param>
+        /// <returns>
+        /// True: successfully read from file.
+        /// False: error occured, while reading from file.
+        /// </returns>
+        private bool ReadFromFile(string fileName, out string[] inputData)
+        {
+            try
+            {
+                inputData = File.ReadAllLines(fileName);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: {ex.Message}");
+                inputData = null;
+                return false;
+            }
+
+            return true;
+        }
+
+        /// <summary>
+        /// Gets and checks validness of roads from input file.
+        /// </summary>
+        /// <param name="inputData"> Roads data from input file. </param>
+        /// <returns>
+        /// True: all roads are valid.
+        /// False: some mistakes in roads info.
+        /// </returns>
+        private bool GetRoadsInfo(string[] inputData)
+        {
+            for (int i = 0; i <= numberOfCities; i++)
+            {
+                roads.Add(new List<Road>());
+            }
 
             for (int roadIndex = 2; roadIndex < inputData.Length - 1; roadIndex++)
             {
@@ -127,21 +191,90 @@ namespace CheapestPath
                 float costOfTravel;
 
                 string[] roadInfo = inputData[roadIndex].Split(' ');
-                if (TryParseFromCity(roadInfo[0], out from)) return;
-                if (TryParseToCity(roadInfo[1], out to)) return;
-                if (!AreFromAndToCitiesDifferent(from, to)) return;
-                if (TryParseRoadType(roadInfo[2], out roadType)) return;
-                if (TryParseCostOfTravel(roadInfo[3], out costOfTravel)) return;
+                if (!TryParseFromCity(roadInfo[0], out from)) return false;
+                if (!TryParseToCity(roadInfo[1], out to)) return false;
+                if (!AreFromAndToCitiesDifferent(from, to)) return false;
+                if (!TryParseRoadType(roadInfo[2], out roadType)) return false;
+                if (!TryParseCostOfTravel(roadInfo[3], out costOfTravel)) return false;
 
-                Road road = new Road() { From = from, To = to, RoadType = roadType,
-                                         CostOfTravel = costOfTravel };
-                roads.Add(road);
+                Road road = new Road()
+                {
+                    From = from,
+                    To = to,
+                    RoadType = roadType,
+                    CostOfTravel = costOfTravel
+                };
+                roads[from].Add(road);
             }
 
-            string[] startAndFinishCity = inputData[inputData.Length - 1].Split(' ');
-            if (TryParseStartCity(startAndFinishCity[0], out startCity)) return;
-            if (TryParseFinishCity(startAndFinishCity[1], out finishCity)) return;
-            if (AreStartAndFinishCitiesDifferent(startCity, finishCity)) return;
+            if (!CheckRoadsInequality()) return false;
+
+            return true;
+        }
+
+
+
+        /// <summary>
+        /// Checks that there is something in first two lines of inputed file,  
+        /// so we do not get out of bounds, addressing unexisting strings.
+        /// </summary>
+        /// <param name="inputData"> All inputed lines. </param>
+        /// <returns>
+        /// True: lines exist.
+        /// False: lines are not found, show error message.
+        /// </returns>
+        private bool CheckExistenceOfFirstTwoInputedLines(string[] inputData)
+        {
+            if (inputData.Length >= 2) return true;
+
+            Console.WriteLine("There is not enough information in input file.");
+            return false;
+        }
+
+        /// <summary>
+        /// Checks that there is right number of lines in inputed file,
+        /// so we have all information to form a transport network.
+        /// </summary>
+        /// <param name="inputData"> All inputed lines. </param>
+        /// <returns>
+        /// True: lines exist.
+        /// False: lines are not found, show error message.
+        /// </returns>
+        private bool CheckNumberOfLeftLines(string[] inputData)
+        {
+            // 2 - lines keeping number of cities and number of roads, NumberOfRoads 
+            // lines for information on each road, 1 - start and finish cities.
+            int rightNumberOfLines = 2 + NumberOfRoads + 1;
+            if (inputData.Length == rightNumberOfLines) return true;
+
+            Console.WriteLine("There is not enough information in input file.");
+            return false;
+        }
+
+        /// <summary>
+        /// Checks that there are no equal roads, so there will not be 
+        /// multiple direct roads from city A to city B.
+        /// </summary>
+        /// <returns>
+        /// True: no equal roads.
+        /// False: equals roads found, error message is shown.
+        /// </returns>
+        private bool CheckRoadsInequality()
+        {
+            for (int i = 0; i < roads.Count - 1; i++)
+            {
+                for (int j = i + 1; j < roads.Count; j++)
+                {
+                    if (roads[i].Equals(roads[j]))
+                    {
+                        Console.WriteLine("There are duplicate roads (several directly " +
+                                          "connected roads from city A to city B.");
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
 
@@ -163,11 +296,6 @@ namespace CheapestPath
             return false;
         }
 
-        private void EqualFromAndToCitiesErrorMessage()
-        {
-            Console.WriteLine($"From-city and to-city can not be equal.");
-        }
-
         /// <summary>
         /// Checks that start and finish cities do not have same names.
         /// </summary>
@@ -183,11 +311,6 @@ namespace CheapestPath
 
             EqualStartAndFinishCitiesErrorMessage();
             return false;
-        }
-
-        private void EqualStartAndFinishCitiesErrorMessage()
-        {
-            Console.WriteLine($"Start city and finish city can not be equal.");
         }
 
 
@@ -221,15 +344,6 @@ namespace CheapestPath
         }
 
         /// <summary>
-        /// Writes to console error message with information about valid number of cities.
-        /// </summary>
-        private void NumberOfCitiesErrorMessage()
-        {
-            Console.WriteLine($"Invalid number of cities inputed. Should be within " +
-                              $"range [{Constants.minNumberOfCities}; {Constants.maxNumberOfCities}]"); 
-        }
-
-        /// <summary>
         /// Tries casting inputed number of roads to int within set range.
         /// </summary>
         /// <param name="numberOfRoadsString"> Inputed number of roads. </param>
@@ -245,7 +359,7 @@ namespace CheapestPath
         {
             if (int.TryParse(numberOfRoadsString, out numberOfRoadsInt))
             {
-                if ((numberOfRoadsInt >= MinNumberOfRoads) &&
+                if ((numberOfRoadsInt >= Constants.minNumberOfRoads) &&
                     (numberOfRoadsInt <= Constants.maxNumberOfRoads))
                 {
                     return true;
@@ -255,15 +369,6 @@ namespace CheapestPath
             NumberOfRoadsErrorMessage();
             numberOfRoadsInt = -1;
             return false;
-        }
-
-        /// <summary>
-        /// Writes to console error message with information about valid number of roads.
-        /// </summary>
-        private void NumberOfRoadsErrorMessage()
-        {
-            Console.WriteLine($"Invalid number of roads inputed. Should be within " +
-                              $"range [{MinNumberOfRoads}; {Constants.maxNumberOfRoads}]");
         }
 
         /// <summary>
@@ -283,7 +388,7 @@ namespace CheapestPath
             if (int.TryParse(fromCityString, out fromCityInt))
             {
                 if ((fromCityInt >= Constants.minCityNumber) &&
-                    (fromCityInt <= Constants.maxCityNumber))
+                    (fromCityInt <= NumberOfCities))
                 {
                     return true;
                 }
@@ -292,16 +397,6 @@ namespace CheapestPath
             FromCityErrorMessage();
             fromCityInt = -1;
             return false;
-        }
-
-        /// <summary>
-        /// Writes to console error message with information about valid from-cities.
-        /// </summary>
-        private void FromCityErrorMessage()
-        {
-            Console.WriteLine($"Invalid from-city inputed. Should be within " +
-                              $"range [{Constants.minCityNumber}; {Constants.maxCityNumber}] " +
-                              $"and not equal to connected to-city.");
         }
 
         /// <summary>
@@ -321,7 +416,7 @@ namespace CheapestPath
             if (int.TryParse(toCityString, out toCityInt))
             {
                 if ((toCityInt >= Constants.minCityNumber) &&
-                    (toCityInt <= Constants.maxCityNumber))
+                    (toCityInt <= NumberOfCities))
                 {
                     return true;
                 }
@@ -330,16 +425,6 @@ namespace CheapestPath
             ToCityErrorMessage();
             toCityInt = -1;
             return false;
-        }
-
-        /// <summary>
-        /// Writes to console error message with information about valid to-cities.
-        /// </summary>
-        private void ToCityErrorMessage()
-        {
-            Console.WriteLine($"Invalid to-city inputed. Should be within " +
-                              $"range [{Constants.minCityNumber}; {Constants.maxCityNumber}] " +
-                              $"and not equal to connected from-city.");
         }
 
         /// <summary>
@@ -373,15 +458,6 @@ namespace CheapestPath
         }
 
         /// <summary>
-        /// Writes to console error message with information about valid road type.
-        /// </summary>
-        private void RoadTypeErrorMessage()
-        {
-            Console.WriteLine($"Invalid road type inputed. Should be within " +
-                              $"range [{RoadType.Highway}; {RoadType.Railway}]");
-        }
-
-        /// <summary>
         /// Tries casting inputed cost of travel to float within set range.
         /// </summary>
         /// <param name="costOfTravelString"> Inputed cost of travel. </param>
@@ -395,10 +471,10 @@ namespace CheapestPath
         /// </returns>
         private bool TryParseCostOfTravel(string costOfTravelString, out float costOfTravelFloat)
         {
-            
+
             if (float.TryParse(costOfTravelString, out costOfTravelFloat))
             {
-                if ((costOfTravelFloat >= Constants.minCost) &&
+                if ((costOfTravelFloat > Constants.minCost) &&
                     (costOfTravelFloat <= Constants.maxCost))
                 {
                     return true;
@@ -408,15 +484,6 @@ namespace CheapestPath
             CostOfTravelErrorMessage();
             costOfTravelFloat = -1;
             return false;
-        }
-
-        /// <summary>
-        /// Writes to console error message with information about valid cost of travel.
-        /// </summary>
-        private void CostOfTravelErrorMessage()
-        {
-            Console.WriteLine($"Invalid cost of travel inputed. Should be within " +
-                              $"range ({Constants.minCost}; {Constants.maxCost}]");
         }
 
         /// <summary>
@@ -436,7 +503,7 @@ namespace CheapestPath
             if (int.TryParse(startCityString, out startCityInt))
             {
                 if ((startCityInt >= Constants.minCityNumber) &&
-                    (startCityInt <= Constants.maxCityNumber))
+                    (startCityInt <= NumberOfCities))
                 {
                     return true;
                 }
@@ -445,16 +512,6 @@ namespace CheapestPath
             StartCityErrorMessage();
             startCityInt = -1;
             return false;
-        }
-
-        /// <summary>
-        /// Writes to console error message with information about valid start city.
-        /// </summary>
-        private void StartCityErrorMessage()
-        {
-            Console.WriteLine($"Invalid start city inputed. Should be within " +
-                              $"range [{Constants.minCityNumber}; {Constants.maxCityNumber}] " +
-                              $"and not equal to finish city.");
         }
 
         /// <summary>
@@ -474,7 +531,7 @@ namespace CheapestPath
             if (int.TryParse(finishCityString, out finishCityInt))
             {
                 if ((finishCityInt >= Constants.minCityNumber) &&
-                    (finishCityInt <= Constants.maxCityNumber))
+                    (finishCityInt <= NumberOfCities))
                 {
                     return true;
                 }
@@ -485,13 +542,91 @@ namespace CheapestPath
             return false;
         }
 
+
+
+        private void EqualFromAndToCitiesErrorMessage()
+        {
+            Console.WriteLine($"From-city and to-city can not be equal.");
+        }
+
+        private void EqualStartAndFinishCitiesErrorMessage()
+        {
+            Console.WriteLine($"Start city and finish city can not be equal.");
+        }
+
+        /// <summary>
+        /// Writes to console error message with information about valid number of cities.
+        /// </summary>
+        private void NumberOfCitiesErrorMessage()
+        {
+            Console.WriteLine($"Invalid number of cities inputed. Should be within " +
+                              $"range [{Constants.minNumberOfCities}; {Constants.maxNumberOfCities}]"); 
+        }
+
+        /// <summary>
+        /// Writes to console error message with information about valid number of roads.
+        /// </summary>
+        private void NumberOfRoadsErrorMessage()
+        {
+            Console.WriteLine($"Invalid number of roads inputed. Should be within " +
+                              $"range [{Constants.minNumberOfRoads}; {Constants.maxNumberOfRoads}]");
+        }
+
+        /// <summary>
+        /// Writes to console error message with information about valid from-cities.
+        /// </summary>
+        private void FromCityErrorMessage()
+        {
+            Console.WriteLine($"Invalid from-city inputed. Should be within " +
+                              $"range [{Constants.minCityNumber}; {NumberOfCities}] " +
+                              $"and not equal to connected to-city.");
+        }
+
+        /// <summary>
+        /// Writes to console error message with information about valid to-cities.
+        /// </summary>
+        private void ToCityErrorMessage()
+        {
+            Console.WriteLine($"Invalid to-city inputed. Should be within " +
+                              $"range [{Constants.minCityNumber}; {NumberOfCities}] " +
+                              $"and not equal to connected from-city.");
+        }
+
+        /// <summary>
+        /// Writes to console error message with information about valid road type.
+        /// </summary>
+        private void RoadTypeErrorMessage()
+        {
+            Console.WriteLine($"Invalid road type inputed. Should be within " +
+                              $"range [{(int)RoadType.Highway}; {(int)RoadType.Railway}]");
+        }
+
+        /// <summary>
+        /// Writes to console error message with information about valid cost of travel.
+        /// </summary>
+        private void CostOfTravelErrorMessage()
+        {
+            Console.WriteLine($"Invalid cost of travel inputed. Should be within " +
+                              $"range ({(int)Constants.minCost}; {(int)Constants.maxCost}]");
+        }
+
+        /// <summary>
+        /// Writes to console error message with information about valid start city.
+        /// </summary>
+        private void StartCityErrorMessage()
+        {
+            Console.WriteLine($"Invalid start city inputed. Should be within " +
+                              $"range [{Constants.minCityNumber}; {NumberOfCities}] " +
+                              $"and not equal to finish city.");
+        }
+
         /// <summary>
         /// Writes to console error message with information about valid finish city.
         /// </summary>
         private void FinishCityErrorMessage()
         {
             Console.WriteLine($"Invalid finish city inputed. Should be within " +
-                              $"range [{Constants.minCityNumber}; {Constants.maxCityNumber}] " +
+                              $"range [{Constants.minCityNumber}; {NumberOfCities}] " +
                               $"and not equal to start city.");
         }
     }

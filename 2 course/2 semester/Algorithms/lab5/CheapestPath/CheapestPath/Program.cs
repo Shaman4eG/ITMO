@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CheapestPath
 {
@@ -10,7 +6,16 @@ namespace CheapestPath
     {
         static void Main(string[] args)
         {
-            
+            while (true)
+            {
+                Console.Clear();
+
+                var input = new Input();
+                input.GetData();
+
+                Console.WriteLine("\nPress any key to continue...");
+                Console.ReadKey();
+            }
         }
     }
 }

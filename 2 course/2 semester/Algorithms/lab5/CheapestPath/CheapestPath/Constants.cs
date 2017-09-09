@@ -1,6 +1,4 @@
-﻿using System.Text.RegularExpressions;
-
-namespace CheapestPath
+﻿namespace CheapestPath
 {
     /// <summary>
     /// Keeps globally used constants in CheapestPath solution.
@@ -11,6 +9,7 @@ namespace CheapestPath
         internal const int minNumberOfCities = 2;
         internal const int maxNumberOfCities = 100;
 
+        internal const int minNumberOfRoads = 1;
         internal const int maxNumberOfRoads = 1000;
         // SECTION END
 

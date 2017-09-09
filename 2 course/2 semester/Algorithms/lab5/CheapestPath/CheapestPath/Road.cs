@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CheapestPath
+﻿namespace CheapestPath
 {
     /// <summary>
     /// Reresents graph's edge. 
@@ -99,5 +93,55 @@ namespace CheapestPath
             }
         }
         private float costOfTravel = 0;
+
+
+
+        /// <summary>
+        /// Tries casting to Road and comparing roads. Two roads are 
+        /// equal when from-cities are the same and to-cities are the same.
+        /// </summary>
+        /// <param name="obj"> Object to compare with. </param>
+        /// <returns>
+        /// True: equal.
+        /// False: inequal.
+        /// </returns>
+        public override bool Equals(System.Object obj)
+        {
+            // If parameter is null return false.
+            if (obj == null)
+            {
+                return false;
+            }
+
+            // If parameter cannot be cast to Road return false.
+            Road road = obj as Road;
+            if (road == null)
+            {
+                return false;
+            }
+
+            // Return true if the fields match:
+            return (from == road.from) && (to == road.to);
+        }
+
+        /// <summary>
+        /// Compares roads. equal when from-cities are the same and to-cities are the same.
+        /// </summary>
+        /// <param name="road"> Road to compare with. </param>
+        /// <returns>
+        /// True: equal.
+        /// False: inequal.
+        /// </returns>
+        public bool Equals(Road road)
+        {
+            // If parameter is null return false:
+            if (road == null)
+            {
+                return false;
+            }
+
+            // Return true if the fields match:
+            return (from == road.from) && (to == road.to);
+        }
     }
 }
