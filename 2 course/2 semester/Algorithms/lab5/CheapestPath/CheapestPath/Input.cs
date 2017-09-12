@@ -100,11 +100,6 @@ namespace CheapestPath
             get { return roads.AsReadOnly(); }
         }
 
-        public Input()
-        {
-
-        }
-
 
 
         /// <summary>
