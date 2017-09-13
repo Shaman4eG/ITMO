@@ -93,9 +93,9 @@ namespace CheapestPath
         /// <summary>
         /// Keeps roads (edges) of transport system.
         /// </summary>
-        private List<List<Road>> roads = new List<List<Road>>();
+        private List< List<Road> > roads = new List< List<Road> >();
 
-        internal ReadOnlyCollection<List<Road>> ReadOnlyRoads
+        internal ReadOnlyCollection< List<Road> > ReadOnlyRoads
         {
             get { return roads.AsReadOnly(); }
         }
@@ -110,7 +110,7 @@ namespace CheapestPath
         internal void GetData()
         {
             // CHANGE
-            string fileName = "TOUR.IN.txt";// = GetFileName();
+            string fileName = Constants.pathToInputFiles + "TOUR.IN.txt";// = GetFileName();
             string[] inputData;
             if (!ReadFromFile(fileName, out inputData)) return;
 

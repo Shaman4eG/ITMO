@@ -25,6 +25,8 @@
         /// <summary>
         /// Should be multiplied by travel through road cost. 
         /// </summary>
-        internal const float insuranceCoefficient = 0.1f;
+        internal const float insuranceCoefficient = 1.1f;
+
+        internal const string pathToInputFiles = "../../Input/";
     } 
 }

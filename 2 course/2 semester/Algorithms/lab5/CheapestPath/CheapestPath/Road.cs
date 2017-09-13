@@ -94,12 +94,6 @@
         }
         private float costOfTravel = 0;
 
-        /// <summary>
-        /// Set during shortest path finding. 
-        /// If true - from-city is a parent of to-city in lowest cost path.
-        /// </summary>
-        internal bool FromCityIsParent { get; set; } = false;
-
 
 
         /// <summary>

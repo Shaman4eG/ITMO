@@ -6,16 +6,17 @@ namespace CheapestPath
     {
         static void Main(string[] args)
         {
-            while (true)
-            {
-                Console.Clear();
+            var input = new Input();
+            input.GetData();
 
-                var input = new Input();
-                input.GetData();
+            var pathFinder = new ShortestPathFinder(input.NumberOfCities);
+            var output = new Output();
+            pathFinder.FindShortestPath(input, output);
 
-                Console.WriteLine("\nPress any key to continue...");
-                Console.ReadKey();
-            }
+            output.OutputData(input.FinishCity);
+
+            Console.WriteLine("\nPress any key to continue...");
+            Console.ReadKey();
         }
     }
 }
