@@ -77,11 +77,25 @@ void findMaxFlowAndMinCutPreparation(bool *graphCreated, GraphParameters *graphP
 {
 	if (*graphCreated)
 	{
+		// OUTPUT OF GRAPH
+		std::cout << " GRAPH" << std::endl;
+		for (int i = 1; i < listsOfEdges.size(); i++)
+		{
+			std::vector<Edge> vertices = listsOfEdges[i];
+			for (int j = 0; j < vertices.size(); j++)
+			{
+				Edge vertex = vertices[j];
+				std::cout << "\t" << convertVertexName((VertexName)i) << "--(" << vertices[j].capacity <<
+					")--> " << convertVertexName(vertex.vertex) << std::endl;
+			}
+		}
+
 		int maxFlow = findMaxFlow(graphParameters, listsOfEdges);
 		std::vector<ElementOfPath> combination;
 		findMinCut(graphParameters, listsOfEdges, maxFlow, combination);
 		std::cout << "\nMax flow = " << maxFlow << std::endl;
 		std::cout << "Min cut:" << std::endl;
+
 		for (int i = 0; i < combination.size(); i++)
 		{
 			std::cout << "\t" << convertVertexName(combination[i].from) << " --(" << combination[i].capacity << 
