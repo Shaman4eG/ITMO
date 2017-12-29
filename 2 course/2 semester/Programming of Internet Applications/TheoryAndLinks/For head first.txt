@@ -1,0 +1,3 @@
+Page: 84
+Code: http://www.headfirstlabs.com/books/hfsvlt/
+Java Tutorials: http://docs.oracle.com/javase/tutorial/

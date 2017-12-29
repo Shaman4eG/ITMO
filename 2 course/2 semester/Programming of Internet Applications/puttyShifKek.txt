@@ -15,3 +15,14 @@ Add
 Port: 50302
 kek: se.ifmo.ru:50302
 Add
+
+# To deploy - do
+http://localhost:50301/
+Deploy An Application
+Browse Folders: /home/s208078/public_html
+выбрать директорию и Choose Folder
+Type: Web Application
+Ok
+Launch
+http://helios:50302/Beer-v1
+http://localhost:50302/Beer-v1/form.html

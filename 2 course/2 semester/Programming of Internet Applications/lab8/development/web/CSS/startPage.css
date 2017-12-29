@@ -1,0 +1,29 @@
+body {
+	background-color: black;
+	font-family: serif;
+}
+
+#header {
+	text-align: center;
+	color: black;
+	font-size: 24px;
+	background: white;
+	border: 1px solid black;
+	border-radius: 15px;
+}
+
+#time {
+	margin-top: 200px;
+}
+
+#button {
+	color: black;
+	background-color: white;
+	font-size: 40px;
+}
+
+div.main {
+	text-align: center;
+	font-size: 50px;
+	color: white;
+}

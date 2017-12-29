@@ -10,3 +10,6 @@ cat > ИМЯ_ФАЙЛА
 # Путь до GlassFish
 cd /
 cd opt/glassfish3/bin
+
+# Компилим с tomcat
+javac -cp C:\tomcat\lib\servlet-api.jar -d classes src/com/example/web/BeerSelect.java

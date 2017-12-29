@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 	function placeholders($filename, $placeholders){
 		return strtr(file_get_contents($filename), $placeholders);
