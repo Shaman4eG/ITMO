@@ -107,26 +107,28 @@ namespace CheapestPath
         /// Magic numbers in indices are set according to how lines should be inputed in task.
         /// </summary>
         /// <param name="fileName"> File with input data. </param>
-        internal void GetData()
+        internal bool GetData()
         {
             // CHANGE
             string fileName = Constants.pathToInputFiles + "TOUR.IN.txt";// = GetFileName();
             string[] inputData;
-            if (!ReadFromFile(fileName, out inputData)) return;
+            if (!ReadFromFile(fileName, out inputData)) return false;
 
-            if (!CheckExistenceOfFirstTwoInputedLines(inputData)) return;
+            if (!CheckExistenceOfFirstTwoInputedLines(inputData)) return false;
 
-            if (!TryParseNumberOfCities(inputData[0], out numberOfCities)) return;
-            if (!TryParseNumberOfRoads(inputData[1], out numberOfRoads)) return;
+            if (!TryParseNumberOfCities(inputData[0], out numberOfCities)) return false;
+            if (!TryParseNumberOfRoads(inputData[1], out numberOfRoads)) return false;
 
-            if (!CheckNumberOfLeftLines(inputData)) return;
+            if (!CheckNumberOfLeftLines(inputData)) return false;
 
-            if (!GetRoadsInfo(inputData)) return;
+            if (!GetRoadsInfo(inputData)) return false;
 
             string[] startAndFinishCity = inputData[inputData.Length - 1].Split(' ');
-            if (!TryParseStartCity(startAndFinishCity[0], out startCity)) return;
-            if (!TryParseFinishCity(startAndFinishCity[1], out finishCity)) return;
-            if (!AreStartAndFinishCitiesDifferent(startCity, finishCity)) return;
+            if (!TryParseStartCity(startAndFinishCity[0], out startCity)) return false;
+            if (!TryParseFinishCity(startAndFinishCity[1], out finishCity)) return false;
+            if (!AreStartAndFinishCitiesDifferent(startCity, finishCity)) return false;
+
+            return true;
         }
 
         /// <summary>
