@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="web" name="Web">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/web/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/web" relative="/" />
+        </webroots>
+      </configuration>
+    </facet>
+    <facet type="jpa" name="JPA">
+      <configuration>
+        <setting name="validation-enabled" value="true" />
+        <setting name="provider-name" value="EclipseLink" />
+        <datasource-mapping>
+          <factory-entry name="NewPersistenceUnit" />
+          <factory-entry name="PointDb" />
+        </datasource-mapping>
+        <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="GlassFish 3.1.2.1-SNAPSHOT" level="application_server_libraries" />
+    <orderEntry type="module-library" exported="">
+      <library name="Mojarra-2.0.1-FCS" type="jsf">
+        <properties version="2.0.1-FCS" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/jstl-1.1.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsf-api.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/jsf-impl.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library name="IceFaces-3.1.0" type="jsf-icefaces">
+        <properties version="3.1.0" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/commons-digester.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-beanutils.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/icefaces.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/icepush.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-logging.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/icefaces-compat.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/poi-3.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/commons-collections.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/el-api.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/krysalis-jCharts-1.0.0-alpha-1.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javax.servlet.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/el-api-2.2.1-b03.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javax.annotation.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/FastInfoset.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/javax.servlet.jsp.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/portletfaces-bridge-2.0.2-ice-7875.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/portlet2-api.jar!/" />
+          <root url="file://$MODULE_DIR$/lib/ApacheLICENSE-2.0.txt" />
+          <root url="file://$MODULE_DIR$/lib/CDDL-1.0.txt" />
+          <root url="jar://$MODULE_DIR$/lib/jstl.jar!/" />
+          <root url="file://$MODULE_DIR$/lib/MIT-LICENSE.txt" />
+          <root url="file://$MODULE_DIR$/lib/NOTICE.txt" />
+          <root url="jar://$MODULE_DIR$/lib/jxl.jar!/" />
+          <root url="jar://$MODULE_DIR$/lib/icefaces-ace.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="PROVIDED">
+      <library type="jsf-primefaces">
+        <properties version="5.2" />
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/primefaces-5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/lib/primefaces-5.2-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" exported="" name="PrimeFaces-5.2" level="project" />
+    <orderEntry type="library" name="JPA 2.0-2.0" level="project" />
+  </component>
+</module>

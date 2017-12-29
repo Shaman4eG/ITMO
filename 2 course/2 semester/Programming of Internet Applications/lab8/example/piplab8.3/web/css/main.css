@@ -1,0 +1,73 @@
+body {
+    font-family: Sans-Serif, sans-serif;
+    background-color: azure;
+}
+.slider {
+    width: 25rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+.slider-container {
+    width: 33.33333%;
+    margin: auto;
+}
+.text-input-container {
+    width: 33.3333%;
+    margin: auto;
+}
+.input {
+    margin: auto;
+    margin-left: 1rem;
+}
+#hand-form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.submit-button {
+    width: 6rem;
+    margin: auto;
+}
+#image-container {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    margin: auto;
+    overflow: hidden;
+}
+
+#Log {
+    display: none;
+}
+#db-info {
+    margin: auto;
+    border: solid;
+    border-color: aquamarine;
+}
+.point {
+    width: 3px;
+    height: 3px;
+    position: absolute;
+}
+
+.in {
+    background-color: black;
+}
+.out {
+    background-color: red;
+}
+.hidden {
+    display: none;
+}
+
+
+.button {
+    margin: auto;
+    border-style: none;
+    background-color: transparent;
+    text-decoration: underline;
+    font-family: monospace;
+    cursor: pointer;
+    color: #31745d;
+    font-size: 1rem;
+}

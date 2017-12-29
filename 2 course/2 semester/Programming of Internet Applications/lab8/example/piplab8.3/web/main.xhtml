@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xml:lang="en"
+      lang="en"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Main</title>
+    <link rel="stylesheet" href="#{request.contextPath}/css/main.css"/>
+    <script src="#{request.contextPath}/js/main.js" type="application/javascript"></script>
+</h:head>
+<h:body>
+    <p:growl id="growl" showDetail="true" sticky="true" />
+
+    <h:outputText id="Log" value="#{pointBean.log}"/>
+    <br></br>
+
+    <div class="slider-container" id="Rcontainer">
+        <h:outputLabel for="RInput" value="R: "/>
+        <h:inputHidden id="RInput" value="#{pointBean.r}"/>
+        <h:outputText id="displayR" value="#{pointBean.RScaled}"/>
+        <p:slider styleClass="slider" for="RInput" minValue="100" maxValue="400" step="25">
+            <p:ajax oncomplete="updateImage()" update="growl, displayR, graphic-points" event="slideEnd" listener="#{pointBean.onSlideEnd}"/>
+        </p:slider>
+    </div>
+
+
+    <h:panelGroup styleClass="hidden" id="graphic-points">
+        <table>
+            <ui:repeat value="#{pointBean.points}" var="point">
+                <tr class="point-info">
+                    <td>#{point.x}</td>
+                    <td>#{point.y}</td>
+                    <td>#{point.fits}</td>
+                </tr>
+            </ui:repeat>
+        </table>
+    </h:panelGroup>
+
+    <h:form id="graph-form">
+        <div id="image-container">
+            <h:graphicImage styleClass="image" onclick="imageClick(event)" id="image" value="assets/are3.png"/>
+        </div>
+
+
+        <h:inputText styleClass="hidden" id="graphX" value="#{pointBean.x}"/>
+        <h:inputText styleClass="hidden" id="graphY" value="#{pointBean.y}"/>
+
+        <p:commandButton
+                id="graph-submit"
+                styleClass="hidden"
+                value="Submit"
+                action="#{pointBean.check}"
+                update="growl, image, data-table, Log, graphic-points"
+                oncomplete="updateImage()"
+        />
+    </h:form>
+
+    <h:form id="hand-form">
+        <div class="slider-container">
+            <h:outputLabel for="YInput" value="Y: "/>
+            <h:inputHidden id="YInput" value="#{pointBean.y}"/>
+            <h:outputText id="displayY" value="#{pointBean.y}"/>
+            <p:slider styleClass="slider" for="YInput" display="displayY" minValue="-2" maxValue="2" step="1"/>
+        </div>
+
+        <div class="text-input-container">
+            <h:outputLabel for="XInput" value="X:"/>
+            <h:inputText styleClass="input" id="XInput" label="X:" value="#{pointBean.x}" required="true">
+                <f:validator validatorId="xValidator"/>
+            </h:inputText>
+        </div>
+
+        <br></br>
+        <p:commandButton styleClass="submit-button" update="growl, data-table, displayR, Log, graphic-points" value="Submit" action="#{pointBean.check}"/>
+
+        <br></br>
+    </h:form>
+
+
+    <h:button styleClass="button" value="go to start" outcome="goToStart"/>
+
+    <h:panelGroup id="data-table">
+        <table id="db-info">
+            <ui:repeat var="point" value="#{storageBean.points}">
+                <tr>
+                    <td>#{point.x}</td>
+                    <td>#{point.y}</td>
+                    <td>#{point.r}</td>
+                    <td>#{point.result}</td>
+                </tr>
+            </ui:repeat>
+        </table>
+    </h:panelGroup>
+</h:body>
+</html>
