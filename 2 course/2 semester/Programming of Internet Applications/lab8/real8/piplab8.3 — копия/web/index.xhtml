@@ -12,77 +12,24 @@
 
 <h:head>
     <title>Лабораторная работа 8</title>
-    <link rel="stylesheet" href="resources/CSS/mainPage.css" />
 </h:head>
 
-<h:body onload="createPlane()">
+<h:body onload="showTime()">
 
-    <script  type="application/javascript" src="resources/js/mainPage.js" />
-
-    <p:commandButton value="lel" oncomplete="afterLoad()"/>
-    <h:panelGroup id="afterLoad">
-        <h:outputScript>
-            function afterLoad() {
-            alert("#{mainBean.r}" - 1);
-            }
-
-
-        </h:outputScript>
-    </h:panelGroup>
+    <script type="application/javascript" src="resources/js/clock.js"/>
 
     <div align="center">
-        <canvas id="plane" width="300" height="300"
-                style="border:1px solid #000000;"
-        />
-        <!--  update="afterLoad"
-        action="#{mainBean.r}"
-        onclick="getClickedPoint(canvas, event)"-->
+
+        <div>Гхази Даниэль, P3318, вариант 8822</div>
+        <br/>
+        <div id="time"></div>
+        <br/><br/>
+        <form action="main.xhtml">
+            <input id="button" type="submit" value="Основная страница" />
+        </form>
+
     </div>
 
-    <h:form id="input" align="center" >
-        <div align="center">
-            <h:message for="setPoint" />
-        </div>
-
-        <div align="center">
-            <br/>
-            <h:outputLabel for="xInputShower" value="X = " />
-            <p:inputText id="xInputShower" value="#{mainBean.x}" />
-            <p:slider for="xInputShower" minValue="-2" maxValue="2" />
-        </div>
-
-        <div align="center">
-            <br/>
-            <h:outputLabel for="yInput" value="Y = " />
-            <p:inputText id="yInput" value="#{mainBean.y}" />
-        </div>
-
-        <div align="center">
-            <br/>
-            <h:outputLabel for="rInput" value="R" />
-            <h:selectOneRadio id="rInput" value="#{mainBean.r}" >
-                <f:selectItem itemValue="1" itemLabel="1" />
-                <f:selectItem itemValue="2" itemLabel="2" />
-                <f:selectItem itemValue="3" itemLabel="3" />
-                <f:selectItem itemValue="4" itemLabel="4" />
-                <f:selectItem itemValue="5" itemLabel="5" />
-            </h:selectOneRadio>
-        </div>
-
-        <div align="center">
-            <br/><br/>
-            <h:commandButton id="setPoint"
-                            value="Set Point"
-                            process="@this xInputShower"
-                            binding="#{mainBean.setPoint}"
-                            action="#{mainBean.ValidateAndExecute()}"/>
-        </div>
-    </h:form>
-
-    <!--
-        <h:outputLabel for="username">User Name</h:outputLabel>
-        <h:inputText id="username" value="#{user.name}" required="true" requiredMessage="Username is required"/><br/>
-        <h:commandButton id="submit-button" value="Submit" action="response.xhtml"/>
-    -->
 </h:body>
+
 </html>

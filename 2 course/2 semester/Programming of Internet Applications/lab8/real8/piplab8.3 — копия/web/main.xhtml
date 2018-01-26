@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xml:lang="en"
+lang="en"
+xmlns:p="http://primefaces.org/ui"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+    <title>Лабораторная работа 8</title>
+    <link rel="stylesheet" href="resources/CSS/mainPage.css" />
+</h:head>
+
+<h:body onload="createPlane()">
+
+    <script  type="application/javascript" src="resources/js/mainPage.js" />
+
+
+    <div align="center">
+        <canvas id="plane" width="300" height="300"
+                style="border:1px solid #000000;"
+        update="afterLoad"
+        action="#{mainBean.AddClickedPoint()}"
+        onclick="getClickedPoint(plane, event)"/>
+    </div>
+
+    <h:form id="input" align="center" >
+        <div align="center">
+            <h:message for="setPoint" />
+        </div>
+
+        <div align="center">
+            <br/>
+            <h:outputLabel for="xInputShower" value="X = " />
+            <p:inputText id="xInputShower" value="#{mainBean.x}" />
+            <p:slider for="xInputShower" minValue="-2" maxValue="2" />
+        </div>
+
+        <div align="center">
+            <br/>
+            <h:outputLabel for="yInput" value="Y = " />
+            <p:inputText id="yInput" value="#{mainBean.y}" />
+        </div>
+
+        <div align="center">
+            <br/>
+            <h:outputLabel for="rInput" value="R" />
+            <h:selectOneRadio id="rInput" value="#{mainBean.r}"
+                              onclick="createPlane()">
+                <f:selectItem itemValue="1" itemLabel="1" />
+                <f:selectItem itemValue="2" itemLabel="2" />
+                <f:selectItem itemValue="3" itemLabel="3" />
+            <f:selectItem itemValue="4" itemLabel="4" />
+            <f:selectItem itemValue="5" itemLabel="5" />
+        </h:selectOneRadio>
+
+    </div>
+
+    <div align="center">
+            <br/><br/>
+            <h:commandButton id="setPoint"
+                            value="Set Point"
+                            process="@this xInputShower"
+                            binding="#{mainBean.setPoint}"
+                            action="#{mainBean.ValidateAndExecute()}" />
+        </div>
+    </h:form>
+
+
+    <h:form id="myForm" style="display: none">
+        <h:inputHidden id="hiddenX" value="#{mainBean.clickedX}" />
+        <h:inputHidden id="hiddenY" value="#{mainBean.clickedY}" />
+        <h:inputHidden id="hiddenR" value="#{mainBean.r}" />
+        <h:commandButton id="commitClick" action="#{mainBean.AddClickedPoint()}" />
+    </h:form>
+
+    <form action="index.xhtml">
+        <div align="center">
+            <br/><br/>
+            <input id="redirect" type="submit" value="Начальная страница" />
+        </div>
+    </form>
+
+
+
+
+</h:body>
+</html>

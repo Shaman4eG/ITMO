@@ -2,16 +2,18 @@ function createPlane()
 {
     var canvas = document.getElementById("plane");
     var ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     var centerX = canvas.width / 2;
     var centerY = canvas.height / 2;
     var fillColor = "#6b9ff4";
-    var inputR = 3;//document.getElementById("demo").innerHTML = "Hello World";
+    var inputR = $("#input input[type='radio']:checked").val();//$('#rForButtonSetJs').val();
+    document.getElementById('myForm:hiddenR').value = inputR;
     var multiplierOfR = 25;
     var finalR = inputR * multiplierOfR;
 
     draw(canvas, ctx, centerX, centerY, finalR, fillColor);
 
-
+    //drawPoint("buttonPoint");
 }
 
 function draw(canvas, ctx, centerX, centerY, R, fillColor)
@@ -19,11 +21,12 @@ function draw(canvas, ctx, centerX, centerY, R, fillColor)
     // Top-left square
     ctx.fillStyle = fillColor;
     ctx.fillRect(centerX, centerY, -R, -R);
-    ctx.fillRect(centerX, centerY, -R, -R);
 
     // Bottom-right arc
+    ctx.beginPath();
     ctx.arc(centerX, centerY, R / 2, 0, Math.PI);
     ctx.fillStyle = fillColor;
+    ctx.closePath();
     ctx.fill();
     ctx.clearRect(centerX, centerY, -R / 2, R / 2);
 
@@ -55,12 +58,19 @@ function draw(canvas, ctx, centerX, centerY, R, fillColor)
     ctx.fillRect(centerX - 4, centerY + R, 8, 1);
 }
 
-/*
+function drawPoint(x, y, hit) {
+
+}
+
 function getClickedPoint(canvas, event) {
     var rect = canvas.getBoundingClientRect();
-    var x = Math.round(event.clientX - rect.left);
-    var y = Math.round(event.clientY - rect.top);
+    var x = Math.round(event.clientX - rect.left - canvas.width / 2 - 1);
+    var y = Math.round( - event.clientY + rect.top + canvas.height / 2 + 1);
 
-    console.log("x: " + x + " y: " + y);
+
+    document.getElementById('myForm:hiddenX').value = x;
+    document.getElementById('myForm:hiddenY').value = y;
+
+    $("#myForm\\:commitClick").click();
 }
-*/
+
